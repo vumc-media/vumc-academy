@@ -339,6 +339,7 @@
     .calendar-shell {
       overflow: hidden;
       margin-top: 34px;
+      scroll-margin-top: 110px;
     }
 
     .calendar-head {
@@ -377,6 +378,7 @@
       padding: 0 18px 18px;
       font-size: 13px;
       color: var(--muted);
+      line-height: 1.6;
     }
 
     .cta-card {
@@ -769,7 +771,7 @@
               Keep up with school events, important dates, family activities, and seasonal celebrations all in one place.
             </p>
             <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;">
-              <a class="pill-btn primary" href="https://calendar.google.com/calendar/u/0/embed?ctz=America/New_York&src=theacademyvumc@gmail.com" target="_blank" rel="noopener">Open Calendar</a>
+              <a class="pill-btn primary" href="#academy-calendar">View Calendar</a>
               <a class="pill-btn light" href="#" data-open-enroll>Enroll</a>
             </div>
           </div>
@@ -793,7 +795,7 @@
         <div class="eyebrow" style="color: var(--accent);">Calendar Overview</div>
         <h2 class="section-title">Important dates, school events, and family reminders.</h2>
         <p class="section-copy">
-          Use this page to keep track of what is happening at The Academy throughout the year. For the best mobile experience, you can also open the calendar directly in Google Calendar.
+          Use this page to keep track of what is happening at The Academy throughout the year. For the best mobile experience, you can also interact with the calendar below or open it directly in Google Calendar if needed.
         </p>
 
         <div class="card-grid">
@@ -809,11 +811,11 @@
 
           <div class="info-card">
             <h3>Full Google Access</h3>
-            <p>Open the full calendar directly in Google Calendar for a larger view and easier navigation on mobile devices.</p>
+            <p>Families can use the embedded calendar below or open the full Google Calendar experience when needed.</p>
           </div>
         </div>
 
-        <div class="calendar-shell">
+        <div class="calendar-shell" id="academy-calendar">
           <div class="calendar-head">
             <h2>Full Calendar View</h2>
             <p>View upcoming Academy events, important dates, and seasonal activities below.</p>
@@ -828,7 +830,7 @@
           </div>
 
           <div class="calendar-note">
-            If the calendar appears too small on your device, use the “Open Calendar” button above for a larger view.
+            Scroll here anytime to view the embedded calendar below. On smaller devices, you may find it easier to interact with the calendar directly inside Google Calendar.
           </div>
         </div>
 
@@ -859,7 +861,7 @@
         <div class="footer-card">
           <h4>Contact</h4>
           <p>(859) 879-1743</p>
-          <p>academydirector@versaillesumc.org</p>
+          <p>director@versaillesumc.org</p>
         </div>
 
         <div class="footer-card">
