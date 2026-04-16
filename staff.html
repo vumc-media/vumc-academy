@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meet the Teachers | The Academy at VUMC</title>
-  <meta name="description" content="Meet the teachers and staff at The Academy at VUMC." />
+  <title>Staff | The Academy at VUMC</title>
+  <meta name="description" content="Meet the leadership team and teaching staff at The Academy at VUMC." />
   <style>
     :root {
       --bg: #f8f6f2;
@@ -367,11 +367,46 @@
       max-width: 760px;
     }
 
+    .staff-section {
+      margin-top: 42px;
+    }
+
+    .staff-section:first-of-type {
+      margin-top: 34px;
+    }
+
+    .staff-section-head {
+      margin-bottom: 18px;
+    }
+
+    .staff-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-strong);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .staff-heading {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .staff-subcopy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 760px;
+    }
+
     .teacher-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 34px;
+      margin-top: 24px;
     }
 
     .teacher-card,
@@ -440,7 +475,7 @@
       color: #fff;
       position: relative;
       overflow: hidden;
-      margin-top: 34px;
+      margin-top: 40px;
     }
 
     .cta-card::after {
@@ -796,8 +831,8 @@
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="index.html">Home</a>
           <a href="mission.html">Mission</a>
+          <a href="staff.html" class="active">Staff</a>
           <a href="calendar.html">Calendar</a>
-          <a href="teachers.html" class="active">Teachers</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
         </nav>
@@ -812,8 +847,8 @@
         <div class="mobile-menu-inner">
           <a href="index.html">Home</a>
           <a href="mission.html">Mission</a>
+          <a href="staff.html">Staff</a>
           <a href="calendar.html">Calendar</a>
-          <a href="teachers.html">Teachers</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
           <a href="#" data-open-enroll>Enroll</a>
@@ -828,12 +863,12 @@
         <div class="hero-inner">
           <div>
             <div class="eyebrow">Meet Our Team</div>
-            <h1>Meet the Teachers</h1>
+            <h1>Meet the Staff</h1>
             <p>
               Get to know the caring team that helps create a safe, nurturing, and Christ-centered environment for every child at The Academy.
             </p>
             <div class="hero-actions">
-              <a class="pill-btn primary" href="#teacher-grid">Meet Our Team</a>
+              <a class="pill-btn primary" href="#leadership-team">Meet Our Team</a>
               <a class="pill-btn light" href="contact.html">Contact Us</a>
             </div>
           </div>
@@ -863,31 +898,53 @@
     <section class="section">
       <div class="container">
         <div class="eyebrow" style="color: var(--accent-strong);">Our Staff</div>
-        <h2 class="section-title">Caring teachers who help children grow.</h2>
+        <h2 class="section-title">The people who help The Academy feel like home.</h2>
         <p class="section-copy">
           Every member of our Academy team plays an important role in creating a loving, engaging, and Christ-centered place for children and families.
         </p>
 
-        <div class="teacher-grid" id="teacher-grid">
-          <div class="teacher-card">
-            <h3>Lynsey Farrow</h3>
-            <p class="teacher-role">Director</p>
-            <p class="teacher-copy">Learn more about Lynsey and her role in leading The Academy.</p>
-            <a class="teacher-link" href="director.html">View Profile</a>
+        <div class="staff-section" id="leadership-team">
+          <div class="staff-section-head">
+            <div class="staff-kicker">Leadership Team</div>
+            <h3 class="staff-heading">Guiding the vision and daily life of The Academy.</h3>
+            <p class="staff-subcopy">
+              Our leadership team helps support families, staff, and the overall mission of The Academy.
+            </p>
           </div>
 
-          <div class="teacher-card">
-            <h3>Caressa Dotson</h3>
-            <p class="teacher-role">Assistant Director</p>
-            <p class="teacher-copy">Learn more about Caressa and her role in supporting children, staff, and families.</p>
-            <a class="teacher-link" href="assistant-director.html">View Profile</a>
+          <div class="teacher-grid">
+            <div class="teacher-card">
+              <h3>Lynsey Farrow</h3>
+              <p class="teacher-role">Director</p>
+              <p class="teacher-copy">Learn more about Lynsey and her role in leading The Academy.</p>
+              <a class="teacher-link" href="director.html">View Profile</a>
+            </div>
+
+            <div class="teacher-card">
+              <h3>Caressa Dotson</h3>
+              <p class="teacher-role">Assistant Director</p>
+              <p class="teacher-copy">Learn more about Caressa and her role in supporting children, staff, and families.</p>
+              <a class="teacher-link" href="assistant-director.html">View Profile</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="staff-section" id="teaching-team">
+          <div class="staff-section-head">
+            <div class="staff-kicker">Teaching Team</div>
+            <h3 class="staff-heading">Nurturing, teaching, and encouraging children every day.</h3>
+            <p class="staff-subcopy">
+              Our teaching staff helps children learn, grow, and experience a caring classroom environment each day.
+            </p>
           </div>
 
-          <div class="teacher-card">
-            <h3>Rosa Thompson</h3>
-            <p class="teacher-role">Infant Teacher</p>
-            <p class="teacher-copy">Learn more about Rosa and her care for our youngest children at The Academy.</p>
-            <a class="teacher-link" href="rosa-thompson.html">View Profile</a>
+          <div class="teacher-grid">
+            <div class="teacher-card">
+              <h3>Rosa Thompson</h3>
+              <p class="teacher-role">Infant Teacher</p>
+              <p class="teacher-copy">Learn more about Rosa and her care for our youngest children at The Academy.</p>
+              <a class="teacher-link" href="rosa-thompson.html">View Profile</a>
+            </div>
           </div>
         </div>
 
@@ -924,8 +981,8 @@
         <div class="footer-card">
           <h4>Quick Links</h4>
           <a href="mission.html">Mission</a>
+          <a href="staff.html">Staff</a>
           <a href="calendar.html">Calendar</a>
-          <a href="teachers.html">Teachers</a>
           <a href="contact.html">Contact</a>
         </div>
 
