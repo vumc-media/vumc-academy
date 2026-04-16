@@ -305,6 +305,7 @@
 
     .intro-card,
     .contact-strip,
+    .form-card,
     .map-card,
     .footer-card {
       background: var(--surface);
@@ -353,6 +354,80 @@
       font-size: 17px;
       line-height: 1.7;
       display: block;
+    }
+
+    .form-card {
+      padding: 34px;
+      margin-bottom: 28px;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tour-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .tour-form .full {
+      grid-column: 1 / -1;
+    }
+
+    .tour-form label {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      margin: 0 0 7px;
+      color: var(--text);
+    }
+
+    .tour-form input,
+    .tour-form select,
+    .tour-form textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid rgba(32, 48, 58, 0.14);
+      border-radius: 14px;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .tour-form input:focus,
+    .tour-form select:focus,
+    .tour-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(28, 138, 123, 0.10);
+    }
+
+    .tour-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .tour-status {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .tour-status.ok {
+      display: block;
+      background: #e7f7ed;
+      color: #0b6b3a;
+    }
+
+    .tour-status.err {
+      display: block;
+      background: #fdeaea;
+      color: #a12626;
     }
 
     .map-card {
@@ -639,7 +714,8 @@
     @media (max-width: 760px) {
       .hero-inner,
       .footer-grid,
-      .academy-form {
+      .academy-form,
+      .tour-form {
         grid-template-columns: 1fr;
       }
 
@@ -653,7 +729,8 @@
       }
 
       .intro-card,
-      .contact-strip {
+      .contact-strip,
+      .form-card {
         padding: 24px;
       }
 
@@ -710,7 +787,7 @@
         </nav>
 
         <div class="nav-actions">
-          <a class="pill-btn dark" href="contact.html">Schedule a Tour</a>
+          <a class="pill-btn dark" href="#tour-form">Schedule a Tour</a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
         </div>
       </div>
@@ -722,6 +799,7 @@
           <a href="calendar.html">Calendar</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
+          <a href="#tour-form">Schedule a Tour</a>
           <a href="#" data-open-enroll>Enroll</a>
         </div>
       </div>
@@ -739,7 +817,7 @@
               Whether you’re interested in learning more about our programs or would like to schedule a tour, we welcome the opportunity to meet you and show you around.
             </p>
             <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;">
-              <a class="pill-btn primary" href="tel:8598791743">Call Us</a>
+              <a class="pill-btn primary" href="#tour-form">Schedule a Tour</a>
               <a class="pill-btn light" href="#" data-open-enroll>Enroll</a>
             </div>
           </div>
@@ -749,7 +827,7 @@
             <p>Reach out to us anytime to learn more about The Academy.</p>
             <div class="hero-list">
               <div class="hero-item">Phone: (859) 879-1743</div>
-              <div class="hero-item">Email: director@versaillesumc.org</div>
+              <div class="hero-item">Email: theacademyvumc@gmail.com</div>
               <div class="hero-item">230 Paynes Mill Road</div>
               <div class="hero-item">Versailles, Kentucky 40383</div>
             </div>
@@ -776,7 +854,7 @@
 
             <div class="contact-block">
               <h3>Email Us</h3>
-              <a href="mailto:director@versaillesumc.org">director@versaillesumc.org</a>
+              <a href="mailto:theacademyvumc@gmail.com">theacademyvumc@gmail.com</a>
             </div>
 
             <div class="contact-block">
@@ -785,6 +863,73 @@
               <p>Versailles, Kentucky 40383</p>
             </div>
           </div>
+        </div>
+
+        <div class="form-card" id="tour-form" style="scroll-margin-top:110px;">
+          <div class="eyebrow" style="color: var(--accent);">Schedule a Tour</div>
+          <h2 class="section-title">Request a visit with The Academy.</h2>
+          <p class="section-copy" style="max-width:840px;">
+            Fill out the form below and we’ll follow up with you about scheduling a tour. Your request will be sent to The Academy in rich HTML email format.
+          </p>
+
+          <form id="tourForm" class="tour-form" novalidate>
+            <label class="sr-only" for="tourHp">Leave blank</label>
+            <input id="tourHp" name="tourHp" class="sr-only" tabindex="-1" autocomplete="off" />
+
+            <div>
+              <label for="tourName">Parent / Guardian Name *</label>
+              <input id="tourName" name="tourName" required>
+            </div>
+
+            <div>
+              <label for="tourEmail">Email *</label>
+              <input id="tourEmail" name="tourEmail" type="email" required>
+            </div>
+
+            <div>
+              <label for="tourPhone">Phone *</label>
+              <input id="tourPhone" name="tourPhone" type="tel" required>
+            </div>
+
+            <div>
+              <label for="childAge">Child Age / Age Range *</label>
+              <input id="childAge" name="childAge" required placeholder="Example: 3 years old">
+            </div>
+
+            <div>
+              <label for="preferredDay">Preferred Day *</label>
+              <select id="preferredDay" name="preferredDay" required>
+                <option value="">Select…</option>
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="preferredTime">Preferred Time *</label>
+              <select id="preferredTime" name="preferredTime" required>
+                <option value="">Select…</option>
+                <option>Morning</option>
+                <option>Late Morning</option>
+                <option>Early Afternoon</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+
+            <div class="full">
+              <label for="tourMessage">Questions or Notes</label>
+              <textarea id="tourMessage" name="tourMessage" placeholder="Tell us anything helpful about your family, your child, or your scheduling needs."></textarea>
+            </div>
+
+            <div id="tourStatus" class="tour-status" aria-live="polite"></div>
+
+            <div class="full">
+              <button id="tourSubmitBtn" class="pill-btn primary" type="submit">Submit Tour Request</button>
+            </div>
+          </form>
         </div>
 
         <div class="map-card">
@@ -812,7 +957,7 @@
         <div class="footer-card">
           <h4>Contact</h4>
           <p>(859) 879-1743</p>
-          <p>director@versaillesumc.org</p>
+          <p>theacademyvumc@gmail.com</p>
         </div>
 
         <div class="footer-card">
@@ -934,6 +1079,9 @@
   </div>
 
   <script>
+    const ENROLL_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBXxlAaSdUikV3C3zcYzPDDzIu8hJVX9vRLaXNrYvd6QZU94rMBufTy0M5J9BLR-U30w/exec";
+    const TOUR_SCRIPT_URL = "PASTE_YOUR_TOUR_SCRIPT_URL_HERE";
+
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -942,8 +1090,6 @@
         mobileMenu.classList.toggle('show');
       });
     }
-
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBXxlAaSdUikV3C3zcYzPDDzIu8hJVX9vRLaXNrYvd6QZU94rMBufTy0M5J9BLR-U30w/exec";
 
     const enrollModal = document.getElementById('enrollModal');
     const openEnrollButtons = document.querySelectorAll('[data-open-enroll]');
@@ -1010,7 +1156,7 @@
             page: location.href
           }));
 
-          const res = await fetch(SCRIPT_URL, {
+          const res = await fetch(ENROLL_SCRIPT_URL, {
             method: 'POST',
             body: fd
           });
@@ -1024,7 +1170,7 @@
             const fdFallback = new FormData(reqForm);
             fdFallback.set('consent', document.getElementById('consent').checked ? 'Yes' : 'No');
 
-            await fetch(SCRIPT_URL, {
+            await fetch(ENROLL_SCRIPT_URL, {
               method: 'POST',
               body: fdFallback,
               mode: 'no-cors'
@@ -1037,6 +1183,65 @@
           }
         } finally {
           submitBtn.disabled = false;
+        }
+      });
+    }
+
+    const tourForm = document.getElementById('tourForm');
+    const tourStatus = document.getElementById('tourStatus');
+    const tourSubmitBtn = document.getElementById('tourSubmitBtn');
+
+    function showTourStatus(msg, ok = true) {
+      tourStatus.className = 'tour-status ' + (ok ? 'ok' : 'err');
+      tourStatus.textContent = msg;
+    }
+
+    if (tourForm) {
+      tourForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!tourForm.reportValidity()) return;
+
+        const hp = document.getElementById('tourHp');
+        if (hp && hp.value) {
+          showTourStatus('Submission blocked.', false);
+          return;
+        }
+
+        tourSubmitBtn.disabled = true;
+        showTourStatus('Submitting…', true);
+
+        try {
+          const fd = new FormData(tourForm);
+          fd.append('_meta', JSON.stringify({
+            submittedAt: new Date().toISOString(),
+            page: location.href,
+            formType: 'Schedule a Tour'
+          }));
+
+          const res = await fetch(TOUR_SCRIPT_URL, {
+            method: 'POST',
+            body: fd
+          });
+
+          if (!res.ok) throw new Error('Bad status');
+
+          showTourStatus("Thanks! Your tour request has been sent. We'll be in touch soon.", true);
+          tourForm.reset();
+        } catch (err) {
+          try {
+            await fetch(TOUR_SCRIPT_URL, {
+              method: 'POST',
+              body: new FormData(tourForm),
+              mode: 'no-cors'
+            });
+
+            showTourStatus("Thanks! Your tour request has been sent. We'll be in touch soon.", true);
+            tourForm.reset();
+          } catch (fallbackErr) {
+            showTourStatus("Something went wrong while submitting. Please try again.", false);
+          }
+        } finally {
+          tourSubmitBtn.disabled = false;
         }
       });
     }
