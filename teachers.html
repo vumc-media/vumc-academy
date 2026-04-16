@@ -384,15 +384,15 @@
     }
 
     .teacher-card {
-      padding: 22px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       background: linear-gradient(180deg, #fff, #fcfffd);
     }
 
-    .teacher-card-head h3 {
-      margin: 0 0 6px;
+    .teacher-card h3 {
+      margin: 0;
       font-size: 24px;
       line-height: 1.1;
     }
@@ -406,25 +406,10 @@
       letter-spacing: 0.08em;
     }
 
-    .teacher-embed-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1.42;
-      overflow: hidden;
-      border-radius: 18px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(63,69,81,0.10);
-      border: 1px solid rgba(36, 50, 58, 0.06);
-    }
-
-    .teacher-embed-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      padding: 0;
+    .teacher-copy {
       margin: 0;
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .teacher-link {
@@ -885,75 +870,24 @@
 
         <div class="teacher-grid" id="teacher-grid">
           <div class="teacher-card">
-            <div class="teacher-card-head">
-              <h3>Lynsey Farrow</h3>
-              <p class="teacher-role">Director</p>
-            </div>
-
-            <div class="teacher-embed-wrap">
-              <iframe
-                loading="lazy"
-                src="https://www.canva.com/design/DAGOIM2E4jw/iePYzztrQl1N9G24TcB_vQ/watch?embed"
-                allowfullscreen="allowfullscreen"
-                allow="fullscreen">
-              </iframe>
-            </div>
-
-            <a
-              class="teacher-link"
-              href="https://www.canva.com/design/DAGOIM2E4jw/iePYzztrQl1N9G24TcB_vQ/watch?utm_content=DAGOIM2E4jw&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-              target="_blank"
-              rel="noopener">
-              Open Full Profile
-            </a>
+            <h3>Lynsey Farrow</h3>
+            <p class="teacher-role">Director</p>
+            <p class="teacher-copy">Learn more about Lynsey and her role in leading The Academy.</p>
+            <a class="teacher-link" href="director.html">View Profile</a>
           </div>
 
           <div class="teacher-card">
-            <div class="teacher-card-head">
-              <h3>Caressa Dotson</h3>
-              <p class="teacher-role">Assistant Director</p>
-            </div>
-
-            <div class="teacher-embed-wrap">
-              <iframe
-                loading="lazy"
-                src="https://www.canva.com/design/DAHHBaZ-Q3Y/Qm51noKZvA8qOBLHecDOpA/view?embed"
-                allowfullscreen="allowfullscreen"
-                allow="fullscreen">
-              </iframe>
-            </div>
-
-            <a
-              class="teacher-link"
-              href="https://www.canva.com/design/DAHHBaZ-Q3Y/Qm51noKZvA8qOBLHecDOpA/view?utm_content=DAHHBaZ-Q3Y&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-              target="_blank"
-              rel="noopener">
-              Open Full Profile
-            </a>
+            <h3>Caressa Dotson</h3>
+            <p class="teacher-role">Assistant Director</p>
+            <p class="teacher-copy">Learn more about Caressa and her role in supporting children, staff, and families.</p>
+            <a class="teacher-link" href="assistant-director.html">View Profile</a>
           </div>
 
           <div class="teacher-card">
-            <div class="teacher-card-head">
-              <h3>Rosa Thompson</h3>
-              <p class="teacher-role">Infant Teacher</p>
-            </div>
-
-            <div class="teacher-embed-wrap">
-              <iframe
-                loading="lazy"
-                src="https://www.canva.com/design/DAHHBY7sOqs/kh2MGbMg_3SP9dtAvYZvuQ/view?embed"
-                allowfullscreen="allowfullscreen"
-                allow="fullscreen">
-              </iframe>
-            </div>
-
-            <a
-              class="teacher-link"
-              href="https://www.canva.com/design/DAHHBY7sOqs/kh2MGbMg_3SP9dtAvYZvuQ/view?utm_content=DAHHBY7sOqs&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-              target="_blank"
-              rel="noopener">
-              Open Full Profile
-            </a>
+            <h3>Rosa Thompson</h3>
+            <p class="teacher-role">Infant Teacher</p>
+            <p class="teacher-copy">Learn more about Rosa and her care for our youngest children at The Academy.</p>
+            <a class="teacher-link" href="rosa-thompson.html">View Profile</a>
           </div>
         </div>
 
