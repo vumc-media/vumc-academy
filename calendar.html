@@ -1,197 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Academy Calendar | The Academy at VUMC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academy Calendar | The Academy at VUMC</title>
 
-<style>
-  :root {
-    --bg: #f7f4ef;
-    --surface: #ffffff;
-    --text: #20303a;
-    --muted: #5a6872;
-    --dark: #16333a;
-    --accent: #1c8a7b;
-    --accent-soft: #d9f1ec;
-    --border: rgba(0,0,0,0.08);
-    --shadow: 0 18px 45px rgba(0,0,0,0.1);
-    --radius: 28px;
-    --max-width: 1200px;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-  }
-
-  .container {
-    width: min(calc(100% - 32px), var(--max-width));
-    margin: 0 auto;
-  }
-
-  /* HEADER */
-  .header {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(10px);
-  }
-
-  .header h1 {
-    margin: 0;
-    font-size: 22px;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 60px 0 30px;
-  }
-
-  .hero h2 {
-    font-size: 42px;
-    margin: 0 0 12px;
-  }
-
-  .hero p {
-    color: var(--muted);
-    font-size: 18px;
-    margin: 0;
-  }
-
-  /* INFO CARDS */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 30px;
-  }
-
-  .info-card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    padding: 20px;
-    box-shadow: var(--shadow);
-  }
-
-  .info-card h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
-  }
-
-  .info-card p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  /* CALENDAR */
-  .calendar-card {
-    margin-top: 24px;
-    background: var(--surface);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-
-  .calendar-header {
-    padding: 20px;
-    background: var(--dark);
-    color: #fff;
-  }
-
-  .calendar-header h3 {
-    margin: 0;
-    font-size: 24px;
-  }
-
-  .calendar-wrap {
-    padding: 16px;
-  }
-
-  iframe {
-    width: 100%;
-    height: 900px;
-    border: 0;
-    border-radius: 16px;
-  }
-
-  /* BUTTON */
-  .btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    background: var(--accent);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  /* MOBILE */
-  @media (max-width: 900px) {
-    .info-grid {
-      grid-template-columns: 1fr;
+  <style>
+    :root {
+      --bg: #f7f3ec;
+      --surface: #ffffff;
+      --surface-soft: #fffaf4;
+      --text: #23333b;
+      --muted: #667781;
+      --navy: #1d3d44;
+      --teal: #2d9c8c;
+      --teal-soft: #dff4ef;
+      --gold-soft: #f8ecd3;
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow: 0 18px 40px rgba(24, 42, 51, 0.10);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 1280px;
     }
 
-    iframe {
-      height: 700px;
-    }
-  }
+    * { box-sizing: border-box; }
 
-</style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, #fff6ea 0%, transparent 35%),
+        radial-gradient(circle at top right, #e8f8f4 0%, transparent 30%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 28px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(45, 156, 140, 0.22);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .hero {
+      padding: 40px 0 22px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #ffffff 0%, #fffaf4 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 34px 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .hero-copy h2 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.05;
+      color: var(--navy);
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 720px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      background: var(--teal-soft);
+      color: var(--navy);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .mini-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--navy);
+    }
+
+    .mini-card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .main-layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 22px;
+      padding: 0 0 42px;
+      align-items: start;
+    }
+
+    .sidebar {
+      display: grid;
+      gap: 18px;
+    }
+
+    .side-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .side-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--navy);
+    }
+
+    .side-card p,
+    .side-card li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .side-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .calendar-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .calendar-panel-header {
+      background: linear-gradient(135deg, var(--navy) 0%, #27535c 100%);
+      color: #fff;
+      padding: 22px 22px 18px;
+    }
+
+    .calendar-panel-header h3 {
+      margin: 0 0 6px;
+      font-size: 28px;
+    }
+
+    .calendar-panel-header p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .calendar-frame-wrap {
+      padding: 16px;
+      background: linear-gradient(180deg, #fff 0%, #fffdf9 100%);
+    }
+
+    .calendar-frame {
+      width: 100%;
+      height: 980px;
+      border: 0;
+      border-radius: 18px;
+      background: #fff;
+      display: block;
+    }
+
+    .bottom-note {
+      padding: 0 16px 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .highlight-card {
+      background: linear-gradient(135deg, var(--gold-soft) 0%, #fff8eb 100%);
+    }
+
+    @media (max-width: 1080px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-card {
+        padding: 26px 18px;
+      }
+
+      .hero-copy p {
+        font-size: 16px;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-panel-header {
+        padding: 18px 18px 16px;
+      }
+
+      .calendar-panel-header h3 {
+        font-size: 24px;
+      }
+
+      .calendar-frame-wrap {
+        padding: 12px;
+      }
+
+      .calendar-frame {
+        height: 780px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .brand-title {
+        font-size: 19px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .top-actions {
+        width: 100%;
+      }
+
+      .top-actions a {
+        flex: 1 1 100%;
+      }
+
+      .calendar-frame {
+        height: 700px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="header">
-  <div class="container">
-    <h1>The Academy at VUMC</h1>
-  </div>
-</div>
-
-<section class="hero">
-  <div class="container">
-    <h2>Academy Calendar</h2>
-    <p>Stay up to date with events, school activities, and important dates.</p>
-
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>For Families</h3>
-        <p>All school events and important dates in one place.</p>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand-wrap">
+        <div class="eyebrow">The Academy at VUMC</div>
+        <h1 class="brand-title">Academy Calendar</h1>
       </div>
 
-      <div class="info-card">
-        <h3>Mobile Friendly</h3>
-        <p>Best experience on phones is opening directly in Google Calendar.</p>
-      </div>
-
-      <div class="info-card">
-        <h3>Quick Access</h3>
-        <a class="btn" href="https://calendar.google.com/calendar/u/0/embed?ctz=America/New_York&src=theacademyvumc@gmail.com" target="_blank">
-          Open Calendar
+      <div class="top-actions">
+        <a class="btn btn-primary" href="https://calendar.google.com/calendar/u/0/embed?ctz=America/New_York&src=theacademyvumc@gmail.com" target="_blank" rel="noopener">
+          Open in Google Calendar
+        </a>
+        <a class="btn btn-secondary" href="/home">
+          Back to Academy Home
         </a>
       </div>
     </div>
+  </header>
 
-    <div class="calendar-card">
-      <div class="calendar-header">
-        <h3>Full Calendar View</h3>
-      </div>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h2>Stay connected to Academy life.</h2>
+            <p>
+              Keep up with school events, family activities, important dates, and special Academy happenings in one easy place.
+            </p>
 
-      <div class="calendar-wrap">
-        <iframe
-          src="https://calendar.google.com/calendar/u/0/embed?ctz=America/New_York&src=theacademyvumc@gmail.com">
-        </iframe>
+            <div class="hero-badges">
+              <span class="badge">School Events</span>
+              <span class="badge">Important Dates</span>
+              <span class="badge">Family Friendly Access</span>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="mini-card">
+              <h3>Helpful for Families</h3>
+              <p>
+                Use this page to quickly check what is coming up without having to search through emails or flyers.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h3>Best on Mobile</h3>
+              <p>
+                On phones, the best experience is often to use the button above and open the calendar directly in Google Calendar.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <main class="container main-layout">
+
+    <aside class="sidebar">
+      <div class="side-card highlight-card">
+        <h3>Quick Access</h3>
+        <p>
+          Need a larger view? Open the calendar directly for the full Google Calendar experience.
+        </p>
+        <a class="btn btn-primary" href="https://calendar.google.com/calendar/u/0/embed?ctz=America/New_York&src=theacademyvumc@gmail.com" target="_blank" rel="noopener">
+          Open Full Calendar
+        </a>
+      </div>
+
+      <div class="side-card">
+        <h3>What You’ll Find</h3>
+        <ul>
+          <li>School closings and breaks</li>
+          <li>Special Academy events</li>
+          <li>Family-focused activities</li>
+          <li>Important dates and reminders</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>Tip for Parents</h3>
+        <p>
+          Bookmark this page so you can quickly check upcoming dates throughout the week.
+        </p>
+      </div>
+    </aside>
+
+    <section class="calendar-panel">
+      <div class="calendar-panel-header">
+        <h3>Full Calendar View</h3>
+        <p>
+          View upcoming Academy events and important dates below.
+        </p>
+      </div>
+
+      <div class="calendar-frame-wrap">
+        <iframe
+          class="calendar-frame"
+          src="https://calendar.google.com/calendar/u/0/embed?ctz=America/New_York&src=theacademyvumc@gmail.com"
+          title="The Academy at VUMC Calendar">
+        </iframe>
+      </div>
+
+      <div class="bottom-note">
+        Calendar not displaying well on your device? Use the “Open in Google Calendar” button for a larger view.
+      </div>
+    </section>
+
+  </main>
 
 </body>
 </html>
