@@ -28,6 +28,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -456,6 +457,204 @@
       text-align: center;
     }
 
+    /* ENROLL MODAL */
+    .academy-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: none;
+    }
+
+    .academy-modal.show {
+      display: block;
+    }
+
+    .academy-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 24, 30, 0.58);
+      backdrop-filter: blur(4px);
+    }
+
+    .academy-modal-dialog {
+      position: relative;
+      width: min(calc(100% - 24px), 880px);
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+      margin: 20px auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.20);
+      z-index: 1;
+    }
+
+    .academy-modal-header {
+      padding: 28px 28px 18px;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(28,138,123,0.08), rgba(22,51,58,0.04)),
+        var(--surface);
+    }
+
+    .academy-modal-header h2 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .academy-modal-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .academy-modal-body {
+      padding: 24px 28px 30px;
+    }
+
+    .academy-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.92);
+      color: var(--dark);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+      z-index: 2;
+    }
+
+    .academy-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .academy-form .full {
+      grid-column: 1 / -1;
+    }
+
+    .academy-form-section {
+      font-size: 16px;
+      color: var(--dark);
+      margin-top: 4px;
+    }
+
+    .academy-form label {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      margin: 0 0 7px;
+      color: var(--text);
+    }
+
+    .academy-form input,
+    .academy-form select,
+    .academy-form textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid rgba(32, 48, 58, 0.14);
+      border-radius: 14px;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .academy-form input:focus,
+    .academy-form select:focus,
+    .academy-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(28, 138, 123, 0.10);
+    }
+
+    .academy-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .academy-note-line {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .academy-check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .academy-check-row input[type="checkbox"] {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .academy-check-row label {
+      margin: 0;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .academy-status {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .academy-status.ok {
+      display: block;
+      background: #e7f7ed;
+      color: #0b6b3a;
+    }
+
+    .academy-status.err {
+      display: block;
+      background: #fdeaea;
+      color: #a12626;
+    }
+
+    .academy-submit-wrap {
+      margin-top: 4px;
+    }
+
+    .academy-submit-btn {
+      border: none;
+      cursor: pointer;
+    }
+
+    .academy-submit-btn[disabled] {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
     @media (max-width: 1100px) {
       .nav-links,
       .nav-actions .pill-btn.dark {
@@ -482,7 +681,8 @@
       .card-grid,
       .two-column,
       .mini-grid,
-      .footer-grid {
+      .footer-grid,
+      .academy-form {
         grid-template-columns: 1fr;
       }
 
@@ -505,6 +705,19 @@
       .image-card {
         min-height: 280px;
       }
+
+      .academy-modal-dialog {
+        width: min(calc(100% - 16px), 880px);
+        max-height: calc(100vh - 16px);
+        margin: 8px auto;
+        border-radius: 22px;
+      }
+
+      .academy-modal-header,
+      .academy-modal-body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
     }
   </style>
 </head>
@@ -513,7 +726,7 @@
     <div class="container">
       <div class="topbar-inner">
         <span>Now Enrolling: 6 weeks – 5 years of age</span>
-        <a class="pill-btn light" href="enroll.html">Enroll</a>
+        <a class="pill-btn light" href="#" data-open-enroll>Enroll</a>
       </div>
     </div>
   </div>
@@ -550,6 +763,7 @@
           <a href="calendar.html">Calendar</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
+          <a href="#" data-open-enroll>Enroll</a>
         </div>
       </div>
     </div>
@@ -566,7 +780,7 @@
               The Academy at Versailles UMC serves children from 6 weeks to 5 years of age with caring teachers, engaging learning experiences, and a strong foundation of Christian love and support.
             </p>
             <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;">
-              <a class="pill-btn primary" href="enroll.html">Enroll Now</a>
+              <a class="pill-btn primary" href="#" data-open-enroll>Enroll Now</a>
               <a class="pill-btn light" href="contact.html">Schedule a Tour</a>
             </div>
           </div>
@@ -596,22 +810,22 @@
         <div class="card-grid">
           <div class="info-card">
             <h3>Confident and Curious Learners</h3>
-            <p>Children are encouraged through hands-on experiences, creativity, discovery, and play-filled learning. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</p>
+            <p>Children are encouraged through hands-on experiences, creativity, discovery, and play-filled learning.</p>
           </div>
 
           <div class="info-card">
             <h3>Caring, Qualified Teachers</h3>
-            <p>The Academy emphasizes caring staff, engaging curriculum, and support for each child’s academic, social, emotional, and spiritual growth. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</p>
+            <p>The Academy emphasizes caring staff, engaging curriculum, and support for each child’s academic, social, emotional, and spiritual growth.</p>
           </div>
 
           <div class="info-card">
             <h3>Christian Values</h3>
-            <p>Daily life at The Academy weaves in biblical truth and reminds children that they are wonderfully made and deeply loved by God. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</p>
+            <p>Daily life at The Academy weaves in biblical truth and reminds children that they are wonderfully made and deeply loved by God.</p>
           </div>
 
           <div class="info-card">
             <h3>Support for Families</h3>
-            <p>The Academy presents itself as a community of encouragement and care that extends beyond the classroom. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</p>
+            <p>The Academy presents itself as a community of encouragement and care that extends beyond the classroom.</p>
           </div>
         </div>
       </div>
@@ -624,7 +838,7 @@
             <div class="eyebrow" style="color: var(--accent);">About The Academy</div>
             <h2 class="section-title">A warm and welcoming place for children and families.</h2>
             <p class="section-copy">
-              The Academy describes its mission as partnering with families to raise children who are confident, curious, and grounded in God’s truth. The goal is to nurture children academically, socially, emotionally, and spiritually in a setting where they feel safe, supported, and loved. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))
+              The Academy partners with families to raise children who are confident, curious, and grounded in God’s truth. The goal is to nurture children academically, socially, emotionally, and spiritually in a setting where they feel safe, supported, and loved.
             </p>
           </div>
           <div class="image-card" aria-hidden="true"></div>
@@ -638,31 +852,31 @@
           <div class="eyebrow" style="color: var(--accent);">Enrollment Information</div>
           <h2 class="section-title">Helpful details for parents.</h2>
           <p class="section-copy">
-            The current Academy site lists application and enrollment steps, food details, parent handbook information, and outdoor playground improvements completed in 2025. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))
+            Learn about enrollment, food details, parent handbook information, and the environment your child will enjoy at The Academy.
           </p>
 
           <div class="mini-grid">
             <div class="mini-block">
               <h4>Enrollment Steps</h4>
               <ul>
-                <li>Application, enrollment interview, and deposit required. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</li>
-                <li>Parents receive a copy of the Parent Handbook. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</li>
+                <li>Application, enrollment interview, and deposit required.</li>
+                <li>Parents receive a copy of the Parent Handbook.</li>
               </ul>
             </div>
 
             <div class="mini-block">
               <h4>Meals and Daily Care</h4>
               <ul>
-                <li>Breakfast and snacks are included in tuition. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</li>
-                <li>Parents provide a packed lunch each day. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</li>
+                <li>Breakfast and snacks are included in tuition.</li>
+                <li>Parents provide a packed lunch each day.</li>
               </ul>
             </div>
 
             <div class="mini-block">
               <h4>Quality and Standards</h4>
               <ul>
-                <li>Listed as a 2 rating in Kentucky All STARS. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</li>
-                <li>State-approved artificial ground covering added to the outdoor playground in 2025. ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))</li>
+                <li>Listed as a 2 rating in Kentucky All STARS.</li>
+                <li>State-approved artificial ground covering added to the outdoor playground.</li>
               </ul>
             </div>
 
@@ -670,7 +884,7 @@
               <h4>Contact and Tours</h4>
               <p>
                 Phone: (859) 879-1743<br />
-                Email: academydirector@versaillesumc.org ([academy.versaillesumc.org](https://academy.versaillesumc.org/home))
+                Email: academydirector@versaillesumc.org
               </p>
             </div>
           </div>
@@ -688,7 +902,7 @@
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;">
             <a class="pill-btn light" href="contact.html">Contact Us</a>
-            <a class="pill-btn primary" href="enroll.html">Start Enrollment</a>
+            <a class="pill-btn primary" href="#" data-open-enroll>Start Enrollment</a>
           </div>
         </div>
       </div>
@@ -729,6 +943,105 @@
     </div>
   </footer>
 
+  <div class="academy-modal" id="enrollModal" aria-hidden="true">
+    <div class="academy-modal-backdrop" data-close-enroll></div>
+
+    <div class="academy-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="enrollModalTitle">
+      <button class="academy-modal-close" type="button" aria-label="Close enrollment form" data-close-enroll">×</button>
+
+      <div class="academy-modal-header">
+        <div class="eyebrow" style="color: var(--accent); margin-bottom: 8px;">Enrollment Request</div>
+        <h2 id="enrollModalTitle">Daycare Opening Request</h2>
+        <p>Request to be contacted about available daycare openings at The Academy at VUMC.</p>
+      </div>
+
+      <div class="academy-modal-body">
+        <form id="reqForm" class="academy-form" novalidate>
+          <label class="sr-only" for="hp">Leave blank</label>
+          <input id="hp" name="hp" class="sr-only" tabindex="-1" autocomplete="off" />
+
+          <div class="academy-form-section full"><strong>Parent / Guardian</strong></div>
+
+          <div>
+            <label for="pgFirst">First name *</label>
+            <input id="pgFirst" name="pgFirst" required>
+          </div>
+
+          <div>
+            <label for="pgLast">Last name *</label>
+            <input id="pgLast" name="pgLast" required>
+          </div>
+
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+
+          <div>
+            <label for="phone">Mobile phone *</label>
+            <input id="phone" name="phone" type="tel" required>
+          </div>
+
+          <div class="academy-form-section full"><strong>Child</strong></div>
+
+          <div>
+            <label for="childFirst">First name *</label>
+            <input id="childFirst" name="childFirst" required>
+          </div>
+
+          <div>
+            <label for="childLast">Last name *</label>
+            <input id="childLast" name="childLast" required>
+          </div>
+
+          <div>
+            <label for="dob">Date of birth *</label>
+            <input id="dob" name="dob" type="date" required>
+          </div>
+
+          <div>
+            <label for="potty">Potty trained?</label>
+            <select id="potty" name="potty">
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>In progress</option>
+            </select>
+          </div>
+
+          <div class="academy-form-section full"><strong>Program Needs</strong></div>
+
+          <div>
+            <label for="startDate">Preferred start date *</label>
+            <input id="startDate" name="startDate" type="date" required>
+          </div>
+
+          <div class="full academy-note-line">
+            <em>Schedule: Full-time (Mon–Fri)</em>
+          </div>
+
+          <div class="full">
+            <label for="notes">Allergies / medical notes / anything else we should know?</label>
+            <textarea id="notes" name="notes"></textarea>
+          </div>
+
+          <div class="full academy-check-row">
+            <input id="consent" name="consent" type="checkbox" required>
+            <label for="consent">I confirm the information provided is accurate and consent to be contacted.</label>
+          </div>
+
+          <div id="status" class="academy-status" aria-live="polite"></div>
+
+          <div class="full academy-submit-wrap">
+            <button id="submitBtn" class="pill-btn primary academy-submit-btn" type="submit">
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script>
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -736,6 +1049,104 @@
     if (mobileToggle && mobileMenu) {
       mobileToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('show');
+      });
+    }
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBXxlAaSdUikV3C3zcYzPDDzIu8hJVX9vRLaXNrYvd6QZU94rMBufTy0M5J9BLR-U30w/exec";
+
+    const enrollModal = document.getElementById('enrollModal');
+    const openEnrollButtons = document.querySelectorAll('[data-open-enroll]');
+    const closeEnrollButtons = document.querySelectorAll('[data-close-enroll]');
+    const reqForm = document.getElementById('reqForm');
+    const statusBox = document.getElementById('status');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function openEnrollModal() {
+      if (!enrollModal) return;
+      enrollModal.classList.add('show');
+      enrollModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeEnrollModal() {
+      if (!enrollModal) return;
+      enrollModal.classList.remove('show');
+      enrollModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    openEnrollButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openEnrollModal();
+      });
+    });
+
+    closeEnrollButtons.forEach(btn => {
+      btn.addEventListener('click', closeEnrollModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && enrollModal && enrollModal.classList.contains('show')) {
+        closeEnrollModal();
+      }
+    });
+
+    function showStatus(msg, ok = true) {
+      statusBox.className = 'academy-status ' + (ok ? 'ok' : 'err');
+      statusBox.textContent = msg;
+    }
+
+    if (reqForm) {
+      reqForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!reqForm.reportValidity()) return;
+
+        const hp = document.getElementById('hp');
+        if (hp && hp.value) {
+          showStatus('Submission blocked.', false);
+          return;
+        }
+
+        submitBtn.disabled = true;
+        showStatus('Submitting…', true);
+
+        try {
+          const fd = new FormData(reqForm);
+          fd.set('consent', document.getElementById('consent').checked ? 'Yes' : 'No');
+          fd.append('_meta', JSON.stringify({
+            submittedAt: new Date().toISOString(),
+            page: location.href
+          }));
+
+          const res = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: fd
+          });
+
+          if (!res.ok) throw new Error('Bad status');
+
+          showStatus("Thanks! Your request has been received. We'll be in touch soon.", true);
+          reqForm.reset();
+        } catch (err) {
+          try {
+            const fdFallback = new FormData(reqForm);
+            fdFallback.set('consent', document.getElementById('consent').checked ? 'Yes' : 'No');
+
+            await fetch(SCRIPT_URL, {
+              method: 'POST',
+              body: fdFallback,
+              mode: 'no-cors'
+            });
+
+            showStatus("Thanks! Your request has been received. We'll be in touch soon.", true);
+            reqForm.reset();
+          } catch (fallbackErr) {
+            showStatus("Something went wrong while submitting. Please try again.", false);
+          }
+        } finally {
+          submitBtn.disabled = false;
+        }
       });
     }
   </script>
