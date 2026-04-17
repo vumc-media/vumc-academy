@@ -1334,5 +1334,38 @@
       });
     }
   </script>
+  <div id="academyChatMount"></div>
+<script>
+  (function () {
+    // prevent double-loading
+    if (document.getElementById("academyChatWidget")) return;
+
+    fetch("chat-widget.html?v=3") // bump version if you update the file
+      .then(res => res.text())
+      .then(html => {
+        const mount = document.getElementById("academyChatMount");
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+
+        const scripts = [];
+        Array.from(temp.childNodes).forEach(node => {
+          if (node.nodeType === 1 && node.tagName.toLowerCase() === "script") {
+            scripts.push(node);
+          } else {
+            mount.appendChild(node.cloneNode(true));
+          }
+        });
+
+        // re-run scripts so the widget works
+        scripts.forEach(old => {
+          const s = document.createElement("script");
+          if (old.src) s.src = old.src;
+          else s.textContent = old.textContent;
+          document.body.appendChild(s);
+        });
+      })
+      .catch(err => console.error("Chat widget failed:", err));
+  })();
+</script>
 </body>
 </html>
