@@ -1323,12 +1323,30 @@
   </script>
 
   <div id="academyChatMount"></div>
-  <script>
-    fetch("chat-widget.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("academyChatMount").innerHTML = html;
+
+<script>
+  fetch("chat-widget.html")
+    .then(res => res.text())
+    .then(html => {
+      const mount = document.getElementById("academyChatMount");
+      const temp = document.createElement("div");
+      temp.innerHTML = html;
+
+      Array.from(temp.childNodes).forEach(node => {
+        if (node.nodeType === 1 && node.tagName.toLowerCase() === "script") {
+          const s = document.createElement("script");
+          if (node.src) {
+            s.src = node.src;
+          } else {
+            s.textContent = node.textContent;
+          }
+          document.body.appendChild(s);
+        } else {
+          mount.appendChild(node.cloneNode(true));
+        }
       });
-  </script>
+    })
+    .catch(err => console.error("Chat widget failed:", err));
+</script>
 </body>
 </html>
