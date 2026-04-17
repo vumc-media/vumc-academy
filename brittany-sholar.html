@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brittany Sholar | The Academy at VUMC</title>
-  <meta name="description" content="Meet Brittany Sholar, Infant Teacher at The Academy at VUMC." />
+  <title>Mrs. Brittany | Infant Teacher | The Academy at VUMC</title>
+  <meta name="description" content="Learn more about Mrs. Brittany, Infant Teacher at The Academy at VUMC." />
   <style>
     :root {
       --bg: #f8f6f2;
       --surface: #ffffff;
-      --surface-soft: #f5fbf8;
-      --surface-warm: #fffaf3;
       --text: #24323a;
       --muted: #61707a;
-      --dark: #29424a;
-      --dark-soft: #3a5961;
-      --accent: #5aa69a;
-      --accent-strong: #3f8f82;
-      --accent-soft: #dff3ee;
-      --blue-soft: #dbe8fb;
-      --gold: #d7b067;
+      --dark: #2e2430;
+      --dark-soft: #5c8a90;
+      --accent-coral: #c9632c;
+      --accent-peach: #ecb39d;
+      --accent-sage: #8eb4a2;
+      --accent-teal: #63aab3;
+      --accent-gold: #efc55f;
+      --accent-cream: #f7f0de;
+      --accent-mocha: #332131;
       --border: rgba(36, 50, 58, 0.08);
-      --shadow: 0 18px 45px rgba(17, 22, 29, 0.08);
+      --shadow: 0 18px 45px rgba(17, 22, 29, 0.10);
       --shadow-soft: 0 10px 24px rgba(17, 22, 29, 0.06);
       --radius-xl: 30px;
       --radius-lg: 24px;
@@ -37,8 +37,8 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(219,232,251,0.34), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(223,243,238,0.46), transparent 28%),
+        radial-gradient(circle at top left, rgba(142,180,162,0.14), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(99,170,179,0.10), transparent 22%),
         var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -79,7 +79,7 @@
       border-radius: 999px;
       font-weight: 700;
       border: 1px solid transparent;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
       white-space: nowrap;
     }
 
@@ -87,18 +87,18 @@
 
     .pill-btn.light {
       background: #fff;
-      color: #3c6ea8;
+      color: #2f5f96;
       box-shadow: var(--shadow-soft);
     }
 
     .pill-btn.primary {
-      background: var(--accent);
+      background: var(--accent-coral);
       color: #fff;
-      box-shadow: 0 10px 24px rgba(90, 166, 154, 0.24);
+      box-shadow: 0 10px 24px rgba(201, 99, 44, 0.24);
     }
 
     .pill-btn.primary:hover {
-      background: var(--accent-strong);
+      background: #ad4f20;
     }
 
     .pill-btn.dark {
@@ -111,7 +111,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(248, 246, 242, 0.9);
+      background: rgba(248, 246, 242, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(17, 22, 29, 0.05);
     }
@@ -218,10 +218,8 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(54,85,94,0.78), rgba(54,85,94,0.50)),
-        url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
-      color: #fff;
+      background: #f1f1f1;
+      color: var(--dark);
     }
 
     .hero::before {
@@ -229,243 +227,258 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top right, rgba(215,176,103,0.20), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(110,167,222,0.18), transparent 28%);
+        radial-gradient(circle at 10% 15%, rgba(142,180,162,0.14), transparent 12%),
+        radial-gradient(circle at 88% 12%, rgba(201,99,44,0.10), transparent 12%),
+        radial-gradient(circle at 30% 90%, rgba(99,170,179,0.10), transparent 12%);
       pointer-events: none;
     }
 
-    .hero::after {
-      content: "";
+    .hero-dots {
       position: absolute;
-      inset: auto 0 0 0;
-      height: 100px;
-      background: linear-gradient(to top, rgba(248,246,242,0.95), rgba(248,246,242,0));
-      pointer-events: none;
+      top: 18px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 0 18px;
+      z-index: 1;
     }
+
+    .hero-dots span {
+      width: 22px;
+      height: 30px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .hero-dots span:nth-child(4n+1) { background: var(--accent-sage); }
+    .hero-dots span:nth-child(4n+2) { background: #e8b25f; }
+    .hero-dots span:nth-child(4n+3) { background: #d59a7c; }
+    .hero-dots span:nth-child(4n+4) { background: #8a8390; }
 
     .hero-inner {
       position: relative;
-      z-index: 1;
-      min-height: 44vh;
+      z-index: 2;
+      padding: 88px 0 52px;
+    }
+
+    .hero-top {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 30px;
-      align-items: center;
-      padding: 72px 0 82px;
+      grid-template-columns: 390px 1fr;
+      gap: 34px;
+      align-items: start;
     }
 
-    .eyebrow {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #e7f8f3;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 60px);
-      line-height: 0.98;
-      margin: 0 0 16px;
-      letter-spacing: -0.04em;
-      max-width: 720px;
-    }
-
-    .hero p {
-      font-size: clamp(17px, 2.2vw, 21px);
-      color: rgba(255,255,255,0.90);
-      margin: 0;
-      max-width: 720px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 28px;
-      padding: 24px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
-    }
-
-    .hero-logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 18px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .hero-logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 22px;
-      object-fit: contain;
-      background: rgba(255,255,255,0.94);
-      padding: 6px;
-      flex-shrink: 0;
-    }
-
-    .hero-logo-text strong {
-      display: block;
-      font-size: 18px;
-      line-height: 1.2;
-      margin-bottom: 4px;
-    }
-
-    .hero-logo-text span {
-      font-size: 13px;
-      color: rgba(255,255,255,0.82);
-    }
-
-    .hero-card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-    }
-
-    .hero-card p {
-      margin: 0;
-      font-size: 15px;
-      color: rgba(255,255,255,0.84);
-    }
-
-    .hero-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .hero-item {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.10);
-      font-size: 15px;
-    }
-
-    .section {
-      padding: 72px 0;
-    }
-
-    .profile-shell,
-    .footer-card,
-    .cta-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .profile-shell {
-      padding: 18px;
-      max-width: 980px;
-      margin: 0 auto;
-      background: linear-gradient(180deg, #fff, #fbfcfd);
-    }
-
-    .profile-meta {
-      max-width: 760px;
-      margin: 0 auto 20px;
-      padding: 10px 6px 0;
+    .photo-card {
       text-align: center;
     }
 
-    .profile-role {
-      margin: 0 0 6px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-strong);
-      font-weight: 700;
-    }
-
-    .profile-name {
-      margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 42px);
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-    }
-
-    .profile-copy {
-      margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .profile-frame-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
-      border-radius: 24px;
+    .photo-wrap {
       overflow: hidden;
-      box-shadow: 0 16px 38px rgba(17,22,29,0.10);
-      border: 1px solid rgba(36, 50, 58, 0.08);
-      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+      background: #ddd;
     }
 
-    .profile-frame {
-      position: relative;
+    .photo-wrap img {
       width: 100%;
-      height: 0;
-      padding-top: 132%;
-      background: #fff;
+      height: auto;
+      display: block;
     }
 
-    .profile-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      margin: 0;
-      padding: 0;
+    .name-graphic {
+      margin-top: 22px;
     }
 
-    .profile-actions {
-      max-width: 760px;
-      margin: 22px auto 0;
+    .role-arc {
+      color: var(--accent-coral);
+      font-size: clamp(32px, 3vw, 44px);
+      line-height: 1.05;
+      font-family: Georgia, "Times New Roman", serif;
+      margin-bottom: 14px;
+    }
+
+    .rainbow-wrap {
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
       justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .rainbow-svg {
+      width: 94px;
+      height: auto;
+      display: block;
+    }
+
+    .display-name {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 0.95;
+      font-weight: 800;
+      color: var(--accent-mocha);
+      letter-spacing: -0.03em;
+    }
+
+    .display-role {
+      margin-top: 10px;
+      font-size: clamp(26px, 3vw, 34px);
+      font-family: Georgia, "Times New Roman", serif;
+      color: #137f90;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.92fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .left-stack,
+    .right-stack {
+      display: grid;
+      gap: 28px;
+    }
+
+    .card {
+      color: var(--accent-mocha);
+      border-radius: 38px;
+      padding: 26px 30px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: -0.03em;
+    }
+
+    .card p,
+    .card li {
+      margin: 0;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.55;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .about-card {
+      background: var(--accent-peach);
+    }
+
+    .favorite-card {
+      background: #adc4c9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .favorite-card .sunflower {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      font-size: 86px;
+      line-height: 1;
+      opacity: 0.95;
+    }
+
+    .favorite-card .favorite-copy {
+      padding-left: 110px;
+      text-align: left;
+    }
+
+    .favorite-card h2 {
+      text-align: left;
+      padding-left: 110px;
+    }
+
+    .favorite-card p {
+      text-align: left;
+      white-space: pre-line;
+    }
+
+    .contact-card {
+      background: var(--accent-teal);
+      max-width: 460px;
+      justify-self: center;
+    }
+
+    .contact-card .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card .icon {
+      font-size: 30px;
+      line-height: 1;
+      color: #ffd565;
+    }
+
+    .excited-card {
+      background: var(--accent-gold);
+      position: relative;
+      overflow: hidden;
+      max-width: 520px;
+      justify-self: center;
+    }
+
+    .excited-card .globe {
+      position: absolute;
+      right: 14px;
+      bottom: 8px;
+      font-size: 110px;
+      line-height: 1;
+      opacity: 0.95;
+    }
+
+    .excited-card .excited-copy {
+      padding-right: 116px;
+    }
+
+    .page-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .section {
+      padding: 56px 0;
     }
 
     .cta-card {
-      padding: 36px;
-      background:
-        linear-gradient(135deg, rgba(90,166,154,0.92), rgba(58,89,97,0.82)),
-        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(63,143,130,0.96), rgba(58,89,97,0.88));
       color: #fff;
-      position: relative;
-      overflow: hidden;
-      margin-top: 40px;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      margin-top: 34px;
     }
 
-    .cta-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 34%),
-        radial-gradient(circle at bottom left, rgba(255,255,255,0.08), transparent 24%);
-      pointer-events: none;
-    }
-
-    .cta-card > * {
-      position: relative;
-      z-index: 1;
+    .cta-card h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
     }
 
     .cta-card p {
-      color: rgba(255,255,255,0.90);
-      max-width: 760px;
+      margin: 0;
+      font-size: 18px;
+      color: rgba(255,255,255,0.92);
+      max-width: 720px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 24px;
     }
 
     .site-footer {
@@ -484,8 +497,8 @@
 
     .footer-card {
       background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.08);
-      box-shadow: none;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
       padding: 24px;
     }
 
@@ -534,7 +547,7 @@
       max-height: calc(100vh - 40px);
       overflow: auto;
       margin: 20px auto;
-      background: var(--surface);
+      background: #fff;
       border: 1px solid var(--border);
       border-radius: 28px;
       box-shadow: 0 24px 70px rgba(0,0,0,0.20);
@@ -546,7 +559,7 @@
       border-bottom: 1px solid var(--border);
       background:
         linear-gradient(135deg, rgba(90,166,154,0.10), rgba(110,167,222,0.07)),
-        var(--surface);
+        #fff;
     }
 
     .academy-modal-header h2 {
@@ -625,8 +638,8 @@
     .academy-form select:focus,
     .academy-form textarea:focus {
       outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(90, 166, 154, 0.12);
+      border-color: var(--accent-coral);
+      box-shadow: 0 0 0 4px rgba(201,99,44,0.10);
     }
 
     .academy-form textarea {
@@ -720,35 +733,102 @@
         justify-content: center;
       }
 
-      .hero-inner,
+      .hero-top,
+      .content-grid,
       .footer-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card,
+      .excited-card {
+        max-width: 100%;
       }
     }
 
     @media (max-width: 760px) {
-      .hero-inner,
-      .footer-grid,
       .academy-form {
         grid-template-columns: 1fr;
       }
 
       .hero-inner {
-        min-height: unset;
-        padding: 56px 0 64px;
+        padding: 84px 0 42px;
+      }
+
+      .photo-card {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .role-arc {
+        font-size: 28px;
+      }
+
+      .display-name {
+        font-size: 48px;
+      }
+
+      .display-role {
+        font-size: 28px;
+      }
+
+      .card {
+        padding: 22px 20px;
+        border-radius: 26px;
+      }
+
+      .card h2 {
+        font-size: 28px;
+      }
+
+      .card p, .card li {
+        font-size: 18px;
+      }
+
+      .favorite-card h2,
+      .favorite-card .favorite-copy {
+        padding-left: 0;
+      }
+
+      .favorite-card .sunflower {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .favorite-card p {
+        text-align: center;
+      }
+
+      .excited-card .excited-copy {
+        padding-right: 0;
+      }
+
+      .excited-card .globe {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-top: 8px;
       }
 
       .section {
-        padding: 56px 0;
+        padding: 42px 0;
       }
 
-      .profile-shell,
       .cta-card {
-        padding: 18px;
+        padding: 24px;
       }
 
-      .profile-frame {
-        padding-top: 138%;
+      .cta-actions,
+      .page-actions,
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .cta-actions .pill-btn,
+      .page-actions .pill-btn,
+      .hero-actions .pill-btn {
+        width: 100%;
       }
 
       .academy-modal-dialog {
@@ -762,21 +842,6 @@
       .academy-modal-body {
         padding-left: 18px;
         padding-right: 18px;
-      }
-
-      .hero h1 {
-        font-size: clamp(34px, 8vw, 48px);
-      }
-
-      .hero-actions,
-      .profile-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-actions .pill-btn,
-      .profile-actions .pill-btn {
-        width: 100%;
       }
     }
   </style>
@@ -805,8 +870,8 @@
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="index.html">Home</a>
           <a href="mission.html">Mission</a>
-          <a href="staff.html" class="active">Staff</a>
           <a href="calendar.html">Calendar</a>
+          <a href="staff.html" class="active">Staff</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
         </nav>
@@ -821,8 +886,8 @@
         <div class="mobile-menu-inner">
           <a href="index.html">Home</a>
           <a href="mission.html">Mission</a>
-          <a href="staff.html">Staff</a>
           <a href="calendar.html">Calendar</a>
+          <a href="staff.html">Staff</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
           <a href="#" data-open-enroll>Enroll</a>
@@ -833,78 +898,91 @@
 
   <main>
     <section class="hero">
+      <div class="hero-dots">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
       <div class="container">
         <div class="hero-inner">
-          <div>
-            <div class="eyebrow">Teaching Team</div>
-            <h1>Brittany Sholar</h1>
-            <p>
-              Infant Teacher at The Academy at VUMC, helping care for and nurture our youngest children in a loving and supportive environment.
-            </p>
-            <div class="hero-actions">
-              <a class="pill-btn primary" href="#profile">View Profile</a>
-              <a class="pill-btn light" href="staff.html">Back to Staff</a>
-            </div>
-          </div>
+          <div class="hero-top">
+            <div class="photo-card">
+              <div class="photo-wrap">
+                <img src="academy-media/brittany-sholar.png" alt="Mrs. Brittany, Infant Teacher at The Academy at VUMC" />
+              </div>
 
-          <div class="hero-card">
-            <div class="hero-logo-wrap">
-              <img class="hero-logo" src="academy-media/academy-logo.png" alt="The Academy at VUMC logo" />
-              <div class="hero-logo-text">
-                <strong>The Academy at VUMC</strong>
-                <span>A warm, faith-filled place for little learners and growing families.</span>
+              <div class="name-graphic">
+                <div class="role-arc">Meet the Teacher</div>
+
+                <div class="rainbow-wrap">
+                  <svg class="rainbow-svg" viewBox="0 0 120 78" aria-hidden="true">
+                    <path d="M18 64a42 42 0 0 1 84 0" fill="none" stroke="#63aab3" stroke-width="9" stroke-linecap="round"/>
+                    <path d="M31 64a29 29 0 0 1 58 0" fill="none" stroke="#332131" stroke-width="9" stroke-linecap="round"/>
+                    <path d="M43 64a17 17 0 0 1 34 0" fill="none" stroke="#efc55f" stroke-width="9" stroke-linecap="round"/>
+                    <path d="M53 64a7 7 0 0 1 14 0" fill="none" stroke="#ecb39d" stroke-width="9" stroke-linecap="round"/>
+                  </svg>
+                </div>
+
+                <div class="display-name">Mrs. Brittany</div>
+                <div class="display-role">Infant room</div>
               </div>
             </div>
 
-            <h3>About This Profile</h3>
-            <p>This page displays Brittany’s Canva profile inside a cleaner framed Academy layout that fits the site better.</p>
-            <div class="hero-list">
-              <div class="hero-item">Framed for better page fit</div>
-              <div class="hero-item">Loads inside the Academy site</div>
-              <div class="hero-item">Keeps Canva updates live</div>
-              <div class="hero-item">Matches Academy branding</div>
+            <div class="content-grid">
+              <div class="left-stack">
+                <div class="card about-card">
+                  <h2>About Me</h2>
+                  <p>My name is Brittany Sholar. I just started working here at The Academy. I have been working with children for about 15 years in many different atmospheres from Montessori to Reggio and traditional ways of teaching. I love to mix it all together and incorporate them all in a classroom. I have been married to my husband Adam for almost 14 years and we have three children Brooklynn (13), Greyson (9), and Courtney (7). We have a few pets, a cat named Merlin, and dogs named Lucy, Deacon, and Mya. As you can tell, we love animals. I love watching children learn and grow in all aspects of life. I'm so excited to meet you and your little ones and welcome them to a year of learning new things!</p>
+                </div>
+
+                <div class="card contact-card">
+                  <h2>Contact Me</h2>
+                  <div class="contact-row">
+                    <span class="icon">✉</span>
+                    <p>Brightwheel App</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="right-stack">
+                <div class="card favorite-card">
+                  <h2>Favorite Things:</h2>
+                  <div class="favorite-copy">
+                    <p>Drink: 7up, or coffee with chocolate
+
+Snack: cashews or chocolate
+
+Place: Zaxby’s</p>
+                  </div>
+                  <div class="sunflower">🌻</div>
+                </div>
+
+                <div class="card excited-card">
+                  <h2>Most excited for:</h2>
+                  <div class="excited-copy">
+                    <p>Art projects &amp; watching them grow and learn new things!</p>
+                  </div>
+                  <div class="globe">🌎</div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="page-actions">
+            <a class="pill-btn light" href="staff.html">Back to Staff</a>
+            <a class="pill-btn primary" href="contact.html">Contact The Academy</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="profile">
+    <section class="section">
       <div class="container">
-        <div class="profile-shell">
-          <div class="profile-meta">
-            <p class="profile-role">Infant Teacher</p>
-            <h2 class="profile-name">Brittany Sholar</h2>
-            <p class="profile-copy">
-              Learn more about Brittany and her care for our youngest children at The Academy.
-            </p>
-          </div>
-
-          <div class="profile-frame-wrap">
-            <div class="profile-frame">
-              <iframe
-                loading="lazy"
-                src="https://www.canva.com/design/DAHHBb4rILE/YicdtzB8n0WkaC8dGsCqXQ/view?embed"
-                allowfullscreen="allowfullscreen"
-                allow="fullscreen"
-                title="Brittany Sholar Profile">
-              </iframe>
-            </div>
-          </div>
-
-          <div class="profile-actions">
-            <a class="pill-btn dark" href="staff.html">Back to Staff</a>
-            <a class="pill-btn light" href="https://www.canva.com/design/DAHHBb4rILE/YicdtzB8n0WkaC8dGsCqXQ/view?utm_content=DAHHBb4rILE&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">Open in Canva</a>
-          </div>
-        </div>
-
         <div class="cta-card">
-          <div class="eyebrow">Now Enrolling</div>
-          <h2 class="section-title" style="color:#fff;max-width:760px;">Want to learn more about The Academy?</h2>
-          <p>
-            We would love to help your family explore enrollment, ask questions, or schedule a visit.
-          </p>
-          <div class="hero-actions" style="margin-top:26px;">
+          <h2>Want to learn more about The Academy?</h2>
+          <p>We would love to help your family explore enrollment, ask questions, or schedule a visit.</p>
+          <div class="cta-actions">
             <a class="pill-btn light" href="contact.html">Contact Us</a>
             <a class="pill-btn primary" href="#" data-open-enroll>Start Enrollment</a>
           </div>
@@ -915,7 +993,6 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="eyebrow">The Academy at VUMC</div>
       <div class="footer-grid">
         <div class="footer-card">
           <h4>About</h4>
@@ -931,8 +1008,8 @@
         <div class="footer-card">
           <h4>Quick Links</h4>
           <a href="mission.html">Mission</a>
-          <a href="staff.html">Staff</a>
           <a href="calendar.html">Calendar</a>
+          <a href="staff.html">Staff</a>
           <a href="contact.html">Contact</a>
         </div>
 
@@ -955,7 +1032,6 @@
       <button class="academy-modal-close" type="button" aria-label="Close enrollment form" data-close-enroll">×</button>
 
       <div class="academy-modal-header">
-        <div class="eyebrow" style="color: var(--accent-strong); margin-bottom: 8px;">Enrollment Request</div>
         <h2 id="enrollModalTitle">Daycare Opening Request</h2>
         <p>Request to be contacted about available daycare openings at The Academy at VUMC.</p>
       </div>
