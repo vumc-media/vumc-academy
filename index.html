@@ -1245,11 +1245,15 @@
     }
 
     document.addEventListener('click', function (e) {
-      if (e.target.matches('[data-close-enroll]')) {
+      const closeTrigger = e.target.closest('[data-close-enroll]');
+      if (closeTrigger) {
+        e.preventDefault();
         closeEnrollModal();
+        return;
       }
 
-      if (e.target.matches('[data-open-enroll]')) {
+      const openTrigger = e.target.closest('[data-open-enroll]');
+      if (openTrigger) {
         e.preventDefault();
         openEnrollModal();
       }
