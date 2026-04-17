@@ -1226,8 +1226,6 @@
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBXxlAaSdUikV3C3zcYzPDDzIu8hJVX9vRLaXNrYvd6QZU94rMBufTy0M5J9BLR-U30w/exec";
 
     const enrollModal = document.getElementById('enrollModal');
-    const openEnrollButtons = document.querySelectorAll('[data-open-enroll]');
-    const closeEnrollButtons = document.querySelectorAll('[data-close-enroll]');
     const reqForm = document.getElementById('reqForm');
     const statusBox = document.getElementById('status');
     const submitBtn = document.getElementById('submitBtn');
@@ -1246,15 +1244,15 @@
       document.body.classList.remove('modal-open');
     }
 
-    openEnrollButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    document.addEventListener('click', function (e) {
+      if (e.target.matches('[data-close-enroll]')) {
+        closeEnrollModal();
+      }
+
+      if (e.target.matches('[data-open-enroll]')) {
         e.preventDefault();
         openEnrollModal();
-      });
-    });
-
-    closeEnrollButtons.forEach(btn => {
-      btn.addEventListener('click', closeEnrollModal);
+      }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -1324,67 +1322,41 @@
 
   <div id="academyChatMount"></div>
 
-<script>
-  fetch("chat-widget.html")
-    .then(res => res.text())
-    .then(html => {
-      const mount = document.getElementById("academyChatMount");
-      const temp = document.createElement("div");
-      temp.innerHTML = html;
+  <script>
+    (function () {
+      const existing = document.getElementById("academyChatWidget");
+      if (existing) return;
 
-      Array.from(temp.childNodes).forEach(node => {
-        if (node.nodeType === 1 && node.tagName.toLowerCase() === "script") {
-          const s = document.createElement("script");
-          if (node.src) {
-            s.src = node.src;
-          } else {
-            s.textContent = node.textContent;
-          }
-          document.body.appendChild(s);
-        } else {
-          mount.appendChild(node.cloneNode(true));
-        }
-      });
-    })
-    .catch(err => console.error("Chat widget failed:", err));
-</script>
-<div id="academyChatMount"></div>
+      fetch("chat-widget.html?v=3")
+        .then(res => res.text())
+        .then(html => {
+          const mount = document.getElementById("academyChatMount");
+          const temp = document.createElement("div");
+          temp.innerHTML = html;
 
-<script>
-  (function () {
-    const existing = document.getElementById("academyChatWidget");
-    if (existing) return;
+          const nodes = Array.from(temp.childNodes);
+          const scripts = [];
 
-    fetch("chat-widget.html?v=3")
-      .then(res => res.text())
-      .then(html => {
-        const mount = document.getElementById("academyChatMount");
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
+          nodes.forEach(node => {
+            if (node.nodeType === 1 && node.tagName.toLowerCase() === "script") {
+              scripts.push(node);
+            } else {
+              mount.appendChild(node.cloneNode(true));
+            }
+          });
 
-        const nodes = Array.from(temp.childNodes);
-        const scripts = [];
-
-        nodes.forEach(node => {
-          if (node.nodeType === 1 && node.tagName.toLowerCase() === "script") {
-            scripts.push(node);
-          } else {
-            mount.appendChild(node.cloneNode(true));
-          }
-        });
-
-        scripts.forEach(oldScript => {
-          const s = document.createElement("script");
-          if (oldScript.src) {
-            s.src = oldScript.src;
-          } else {
-            s.textContent = oldScript.textContent;
-          }
-          document.body.appendChild(s);
-        });
-      })
-      .catch(err => console.error("Chat widget failed:", err));
-  })();
-</script>
+          scripts.forEach(oldScript => {
+            const s = document.createElement("script");
+            if (oldScript.src) {
+              s.src = oldScript.src;
+            } else {
+              s.textContent = oldScript.textContent;
+            }
+            document.body.appendChild(s);
+          });
+        })
+        .catch(err => console.error("Chat widget failed:", err));
+    })();
+  </script>
 </body>
 </html>
