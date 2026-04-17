@@ -100,6 +100,7 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-weight: 600;
   }
 
   .academy-chat-form { display: none; margin-top: 10px; }
@@ -136,7 +137,7 @@
   <div class="academy-chat-messages" id="academyChatMessages">
     <div class="academy-chat-row bot">
       <div class="academy-chat-bubble">
-        Hi! Ask a question or choose an option below.
+        Hi! Ask about hours, meals, potty training, openings, enrollment, or tours.
       </div>
     </div>
   </div>
@@ -144,8 +145,10 @@
   <div class="academy-chat-panel">
     <div class="academy-chat-quick">
       <button onclick="academyQuickAsk('What are your hours?')">Hours</button>
-      <button onclick="academyQuickAsk('Do you provide meals?')">Meals</button>
-      <button onclick="academyQuickAsk('Are there openings?')">Openings</button>
+      <button onclick="academyQuickAsk('What is your phone number?')">Phone</button>
+      <button onclick="academyQuickAsk('Do you provide lunch?')">Meals</button>
+      <button onclick="academyQuickAsk('When does potty training start?')">Potty Training</button>
+      <button onclick="academyQuickAsk('Are there any openings?')">Openings</button>
       <button onclick="academyQuickAsk('How do I schedule a tour?')">Tour</button>
     </div>
 
@@ -165,6 +168,8 @@
 <button class="academy-chat-launcher" onclick="academyToggleChat()">💬</button>
 
 <script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxE3Hdubuv-ggKSm6AeiwZ6K3mEZ4xkxF0_tjmTbXfWWczLxTxe4D5TOPX9K44kNcs3Fg/exec";
+
 function academyToggleChat() {
   document.getElementById("academyChatWidget").classList.toggle("show");
 }
@@ -182,7 +187,7 @@ function academyAddChatMessage(text, who) {
 
 function academyQuickAsk(q) {
   academyAddChatMessage(q, "user");
-  academyAddChatMessage("Thanks! We'll respond shortly.", "bot");
+  academyRequestChat(q, "", "");
 }
 
 function academySendChat() {
@@ -195,12 +200,17 @@ function academySendChat() {
     return;
   }
 
-  if (!email.includes("@")) {
-    academyAddChatMessage("Please enter a valid email address.", "bot");
-    return;
-  }
-
   academyAddChatMessage(msg, "user");
-  academyAddChatMessage("Thank you! Your message has been sent.", "bot");
+  academyRequestChat(msg, name, email);
+}
+
+function academyRequestChat(message, name, email) {
+  const script = document.createElement("script");
+  script.src = SCRIPT_URL +
+    "?q=" + encodeURIComponent(message) +
+    "&name=" + encodeURIComponent(name) +
+    "&email=" + encodeURIComponent(email);
+
+  document.body.appendChild(script);
 }
 </script>
