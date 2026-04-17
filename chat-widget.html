@@ -270,7 +270,7 @@
 
     <div class="academy-chat-form" id="academyChatForm">
       <input type="text" id="academyChatName" placeholder="Your name (optional)">
-      <input type="email" id="academyChatEmail" placeholder="Your email (optional)">
+      <input type="text" id="academyChatEmail" placeholder="Your email (optional)">
       <textarea id="academyChatInput" placeholder="Type your question..."></textarea>
       <div class="academy-chat-actions">
         <button class="academy-chat-send" type="button" onclick="academySendChat()">Send</button>
@@ -290,12 +290,18 @@
 
   function academyToggleChat() {
     const widget = document.getElementById("academyChatWidget");
+    if (!widget) return;
     widget.classList.toggle("show");
   }
 
   function academyToggleOtherQuestion(forceOpen) {
     const form = document.getElementById("academyChatForm");
-    const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : !form.classList.contains("show");
+    if (!form) return;
+
+    const shouldOpen = typeof forceOpen === "boolean"
+      ? forceOpen
+      : !form.classList.contains("show");
+
     form.classList.toggle("show", shouldOpen);
 
     if (shouldOpen) {
@@ -308,6 +314,8 @@
 
   function academyAddChatMessage(text, who) {
     const messages = document.getElementById("academyChatMessages");
+    if (!messages) return;
+
     const row = document.createElement("div");
     row.className = "academy-chat-row " + who;
 
@@ -417,15 +425,19 @@
   }
 
   function academySendChat() {
-    const name = document.getElementById("academyChatName").value.trim();
-    const email = document.getElementById("academyChatEmail").value.trim();
+    const name = (document.getElementById("academyChatName")?.value || "").trim();
+    const email = (document.getElementById("academyChatEmail")?.value || "").trim();
     const input = document.getElementById("academyChatInput");
-    const message = input.value.trim();
+    const message = (input?.value || "").trim();
 
-    if (!message) return;
+    if (!message) {
+      academyAddChatMessage("Please type your question first.", "bot");
+      if (input) input.focus();
+      return;
+    }
 
     academyAddChatMessage(academyEscapeHtml(message), "user");
-    input.value = "";
+    if (input) input.value = "";
     academyRequestChat(message, name, email);
   }
 </script>
