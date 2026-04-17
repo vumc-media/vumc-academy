@@ -217,8 +217,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(135deg, #111111 0%, #181818 100%);
+      background: linear-gradient(135deg, #070707 0%, #121212 100%);
       color: #fff;
     }
 
@@ -227,9 +226,9 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 10% 20%, rgba(255,25,184,0.14), transparent 18%),
-        radial-gradient(circle at 85% 18%, rgba(39,240,222,0.10), transparent 18%),
-        radial-gradient(circle at 30% 78%, rgba(182,29,255,0.12), transparent 16%);
+        radial-gradient(circle at 12% 18%, rgba(255,25,184,0.12), transparent 18%),
+        radial-gradient(circle at 88% 16%, rgba(39,240,222,0.08), transparent 18%),
+        radial-gradient(circle at 24% 80%, rgba(182,29,255,0.10), transparent 15%);
       pointer-events: none;
     }
 
@@ -266,13 +265,12 @@
 
     .hero-top {
       display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 32px;
+      grid-template-columns: 320px 1fr;
+      gap: 34px;
       align-items: start;
     }
 
     .photo-card {
-      background: transparent;
       text-align: center;
     }
 
@@ -280,7 +278,6 @@
       overflow: hidden;
       border-radius: 34px;
       box-shadow: 0 12px 28px rgba(0,0,0,0.24);
-      max-width: 100%;
       background: #111;
     }
 
@@ -297,20 +294,57 @@
 
     .role-arc {
       color: var(--accent-teal);
-      font-size: clamp(26px, 3vw, 42px);
-      line-height: 1.1;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.08;
       font-family: Georgia, "Times New Roman", serif;
       margin-bottom: 14px;
     }
 
-    .rainbow {
-      font-size: 54px;
-      line-height: 1;
-      margin-bottom: 10px;
+    .rainbow-wrap {
+      position: relative;
+      width: 126px;
+      height: 80px;
+      margin: 0 auto 14px;
+    }
+
+    .rainbow-arch {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 120px 120px 0 0;
+      border-bottom: 0;
+      background: transparent;
+    }
+
+    .arch1 {
+      width: 126px;
+      height: 78px;
+      border: 8px solid #68d7df;
+    }
+
+    .arch2 {
+      width: 98px;
+      height: 60px;
+      top: 8px;
+      border: 8px solid #272032;
+    }
+
+    .arch3 {
+      width: 70px;
+      height: 42px;
+      top: 16px;
+      border: 8px solid #f4c85a;
+    }
+
+    .arch4 {
+      width: 42px;
+      height: 24px;
+      top: 24px;
+      border: 8px solid #efb4c2;
     }
 
     .display-name {
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(40px, 5vw, 68px);
       line-height: 0.95;
       font-weight: 800;
       color: var(--accent-pink);
@@ -319,17 +353,13 @@
 
     .content-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
+      grid-template-columns: 1.3fr 0.92fr;
       gap: 28px;
       align-items: start;
     }
 
+    .left-stack,
     .right-stack {
-      display: grid;
-      gap: 28px;
-    }
-
-    .left-stack {
       display: grid;
       gap: 28px;
     }
@@ -349,7 +379,6 @@
       font-weight: 800;
       text-align: center;
       letter-spacing: -0.03em;
-      font-family: Arial, Helvetica, sans-serif;
     }
 
     .card p,
@@ -360,10 +389,6 @@
       line-height: 1.55;
       text-align: center;
       font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .about-card p {
-      max-width: 100%;
     }
 
     .mini-card {
@@ -384,11 +409,6 @@
       font-size: 28px;
       line-height: 1;
       color: var(--accent-gold);
-    }
-
-    .favorite-card,
-    .excited-card {
-      min-height: 100%;
     }
 
     .favorite-card p,
@@ -724,6 +744,16 @@
         font-size: 46px;
       }
 
+      .rainbow-wrap {
+        width: 108px;
+        height: 68px;
+      }
+
+      .arch1 { width: 108px; height: 68px; }
+      .arch2 { width: 84px; height: 52px; }
+      .arch3 { width: 60px; height: 36px; }
+      .arch4 { width: 36px; height: 20px; }
+
       .card {
         padding: 20px 18px;
         border-radius: 24px;
@@ -746,14 +776,12 @@
       }
 
       .cta-actions,
-      .page-actions,
-      .hero-actions {
+      .page-actions {
         flex-direction: column;
       }
 
       .cta-actions .pill-btn,
-      .page-actions .pill-btn,
-      .hero-actions .pill-btn {
+      .page-actions .pill-btn {
         width: 100%;
       }
 
@@ -836,12 +864,19 @@
           <div class="hero-top">
             <div class="photo-card">
               <div class="photo-wrap">
-                <img src="academy-media/ms-lynsey.png" alt="Ms. Lynsey, Director at The Academy at VUMC" />
+                <img src="academy-media/lynsey-farrow.png" alt="Ms. Lynsey, Director at The Academy at VUMC" />
               </div>
 
               <div class="name-graphic">
                 <div class="role-arc">Meet the Director</div>
-                <div class="rainbow">🌈</div>
+
+                <div class="rainbow-wrap" aria-hidden="true">
+                  <div class="rainbow-arch arch1"></div>
+                  <div class="rainbow-arch arch2"></div>
+                  <div class="rainbow-arch arch3"></div>
+                  <div class="rainbow-arch arch4"></div>
+                </div>
+
                 <div class="display-name">Ms. Lynsey</div>
               </div>
             </div>
@@ -866,19 +901,19 @@
                 </div>
 
                 <div class="card mini-card excited-card">
-                  <h2>Most excited for:</h2>
+                  <h2>Most Excited For</h2>
                   <p>Being able to teach your littles and watch them grow! ❤️</p>
                 </div>
               </div>
 
               <div class="right-stack">
                 <div class="card favorite-card">
-                  <h2>Favorite Things:</h2>
+                  <h2>Favorite Things</h2>
                   <p>Drink: Starbucks coffee, coke, cherry pepsi
 
 Snack: anything sweet and salty!
 
-Place: Starbucks, Chuys, chic-fil-A</p>
+Place: Starbucks, Chuys, Chick-fil-A</p>
                 </div>
               </div>
             </div>
