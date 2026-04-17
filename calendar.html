@@ -220,8 +220,7 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(54,85,94,0.78), rgba(54,85,94,0.50)),
-        url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        linear-gradient(135deg, #5aa69a 0%, #7abfce 38%, #dbe8fb 70%, #f5ead2 100%);
       color: #fff;
     }
 
@@ -230,8 +229,10 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top right, rgba(215,176,103,0.20), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(110,167,222,0.18), transparent 28%);
+        radial-gradient(circle at 15% 25%, rgba(255,255,255,0.24) 0%, transparent 18%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18) 0%, transparent 18%),
+        radial-gradient(circle at 28% 78%, rgba(255,255,255,0.18) 0%, transparent 20%),
+        radial-gradient(circle at 88% 75%, rgba(255,255,255,0.15) 0%, transparent 18%);
       pointer-events: none;
     }
 
@@ -259,7 +260,7 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: #e7f8f3;
+      color: #ffffff;
       font-weight: 700;
       margin-bottom: 14px;
     }
@@ -274,7 +275,7 @@
 
     .hero p {
       font-size: clamp(17px, 2.2vw, 21px);
-      color: rgba(255,255,255,0.90);
+      color: rgba(255,255,255,0.94);
       margin: 0;
       max-width: 720px;
     }
@@ -287,12 +288,12 @@
     }
 
     .hero-card {
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.24);
       border-radius: 28px;
       padding: 24px;
       backdrop-filter: blur(14px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
     }
 
     .hero-logo-wrap {
@@ -301,7 +302,7 @@
       gap: 16px;
       margin-bottom: 18px;
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.14);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
     }
 
     .hero-logo {
@@ -323,7 +324,7 @@
 
     .hero-logo-text span {
       font-size: 13px;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.88);
     }
 
     .hero-card h3 {
@@ -334,7 +335,7 @@
     .hero-card p {
       margin: 0;
       font-size: 15px;
-      color: rgba(255,255,255,0.84);
+      color: rgba(255,255,255,0.88);
     }
 
     .hero-list {
@@ -346,7 +347,7 @@
     .hero-item {
       padding: 12px 14px;
       border-radius: 16px;
-      background: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.14);
       font-size: 15px;
     }
 
@@ -410,7 +411,7 @@
     }
 
     .calendar-head {
-      background: linear-gradient(135deg, var(--dark), var(--dark-soft));
+      background: linear-gradient(135deg, #5aa69a, #7abfce);
       color: #fff;
       padding: 30px 28px 20px;
     }
@@ -423,7 +424,7 @@
 
     .calendar-head p {
       margin: 0;
-      color: rgba(255,255,255,0.84);
+      color: rgba(255,255,255,0.92);
       font-size: 15px;
     }
 
@@ -432,9 +433,15 @@
       background: #fbfaf8;
     }
 
+    .calendar-tip {
+      padding: 6px 6px 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
     .calendar-frame {
       width: 100%;
-      height: 980px;
+      height: 820px;
       border: 0;
       border-radius: 20px;
       display: block;
@@ -451,8 +458,7 @@
     .cta-card {
       padding: 36px;
       background:
-        linear-gradient(135deg, rgba(90,166,154,0.92), rgba(58,89,97,0.82)),
-        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        linear-gradient(135deg, rgba(90,166,154,0.92), rgba(58,89,97,0.82));
       color: #fff;
       position: relative;
       overflow: hidden;
@@ -521,7 +527,6 @@
       text-align: center;
     }
 
-    /* ENROLL MODAL */
     .academy-modal {
       position: fixed;
       inset: 0;
@@ -851,7 +856,7 @@
               Keep up with school events, important dates, family activities, and seasonal celebrations all in one place.
             </p>
             <div class="hero-actions">
-              <a class="pill-btn primary" href="#academy-calendar">View Calendar</a>
+              <a class="pill-btn primary" href="#academy-calendar" onclick="document.getElementById('academy-calendar').scrollIntoView({behavior:'smooth'}); return false;">View Calendar</a>
               <a class="pill-btn light" href="#" data-open-enroll>Enroll</a>
             </div>
           </div>
@@ -910,6 +915,10 @@
           </div>
 
           <div class="calendar-body">
+            <div class="calendar-tip">
+              Tip: Tap an event to see details. You can also open the calendar directly in Google Calendar for a fuller view.
+            </div>
+
             <iframe
               class="calendar-frame"
               src="https://calendar.google.com/calendar/u/0/embed?ctz=America/New_York&src=theacademyvumc@gmail.com"
