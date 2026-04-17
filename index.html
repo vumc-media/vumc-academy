@@ -879,7 +879,7 @@
   <header class="site-header">
     <div class="container">
       <div class="nav-wrap">
-        <a class='brand' href='/'>
+        <a class="brand" href="index.html">
           <img class="brand-mark" src="academy-media/academy-logo.png" alt="The Academy at VUMC logo" />
           <div>
             <p class="brand-name">The Academy at VUMC</p>
@@ -888,27 +888,27 @@
         </a>
 
         <nav class="nav-links" aria-label="Primary navigation">
-          <a class='active' href='/'>Home</a>
-          <a href='/mission'>Mission</a>
-          <a href='/staff'>Staff</a>
-          <a href='/calendar'>Calendar</a>
-          <a href='/contact'>Contact</a>
+          <a href="index.html" class="active">Home</a>
+          <a href="mission.html">Mission</a>
+          <a href="staff.html">Staff</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
         </nav>
 
         <div class="nav-actions">
-          <a class='pill-btn dark' href='/contact'>Schedule a Tour</a>
+          <a class="pill-btn dark" href="contact.html">Schedule a Tour</a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
         </div>
       </div>
 
       <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-inner">
-          <a href='/'>Home</a>
-          <a href='/mission'>Mission</a>
-          <a href='/staff'>Staff</a>
-          <a href='/calendar'>Calendar</a>
-          <a href='/contact'>Contact</a>
+          <a href="index.html">Home</a>
+          <a href="mission.html">Mission</a>
+          <a href="staff.html">Staff</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
           <a href="#" data-open-enroll>Enroll</a>
         </div>
@@ -928,7 +928,7 @@
             </p>
             <div class="hero-actions">
               <a class="pill-btn primary" href="#" data-open-enroll>Enroll Now</a>
-              <a class='pill-btn light' href='/contact'>Schedule a Tour</a>
+              <a class="pill-btn light" href="contact.html">Schedule a Tour</a>
             </div>
           </div>
 
@@ -1071,7 +1071,7 @@
             We would love to help your family explore The Academy, ask questions, and take the next step toward enrollment.
           </p>
           <div class="hero-actions" style="margin-top:26px;">
-            <a class='pill-btn light' href='/contact'>Contact Us</a>
+            <a class="pill-btn light" href="contact.html">Contact Us</a>
             <a class="pill-btn primary" href="#" data-open-enroll>Start Enrollment</a>
           </div>
         </div>
@@ -1081,4 +1081,254 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="eyebrow">The Academy at V
+      <div class="eyebrow">The Academy at VUMC</div>
+      <div class="footer-grid">
+        <div class="footer-card">
+          <h4>About</h4>
+          <p>A Christ-centered preschool and ministry of Versailles United Methodist Church.</p>
+        </div>
+
+        <div class="footer-card">
+          <h4>Contact</h4>
+          <p>(859) 879-1743</p>
+          <p>director@versaillesumc.org</p>
+        </div>
+
+        <div class="footer-card">
+          <h4>Quick Links</h4>
+          <a href="mission.html">Mission</a>
+          <a href="staff.html">Staff</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-card">
+          <h4>Connected to VUMC</h4>
+          <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">Visit Versailles UMC</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 The Academy at VUMC • A ministry of Versailles United Methodist Church
+      </div>
+    </div>
+  </footer>
+
+  <div class="academy-modal" id="enrollModal" aria-hidden="true">
+    <div class="academy-modal-backdrop" data-close-enroll></div>
+
+    <div class="academy-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="enrollModalTitle">
+      <button class="academy-modal-close" type="button" aria-label="Close enrollment form" data-close-enroll">×</button>
+
+      <div class="academy-modal-header">
+        <div class="eyebrow" style="color: var(--accent-strong); margin-bottom: 8px;">Enrollment Request</div>
+        <h2 id="enrollModalTitle">Daycare Opening Request</h2>
+        <p>Request to be contacted about available daycare openings at The Academy at VUMC.</p>
+      </div>
+
+      <div class="academy-modal-body">
+        <form id="reqForm" class="academy-form" novalidate>
+          <label class="sr-only" for="hp">Leave blank</label>
+          <input id="hp" name="hp" class="sr-only" tabindex="-1" autocomplete="off" />
+
+          <div class="academy-form-section full"><strong>Parent / Guardian</strong></div>
+
+          <div>
+            <label for="pgFirst">First name *</label>
+            <input id="pgFirst" name="pgFirst" required>
+          </div>
+
+          <div>
+            <label for="pgLast">Last name *</label>
+            <input id="pgLast" name="pgLast" required>
+          </div>
+
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+
+          <div>
+            <label for="phone">Mobile phone *</label>
+            <input id="phone" name="phone" type="tel" required>
+          </div>
+
+          <div class="academy-form-section full"><strong>Child</strong></div>
+
+          <div>
+            <label for="childFirst">First name *</label>
+            <input id="childFirst" name="childFirst" required>
+          </div>
+
+          <div>
+            <label for="childLast">Last name *</label>
+            <input id="childLast" name="childLast" required>
+          </div>
+
+          <div>
+            <label for="dob">Date of birth *</label>
+            <input id="dob" name="dob" type="date" required>
+          </div>
+
+          <div>
+            <label for="potty">Potty trained?</label>
+            <select id="potty" name="potty">
+              <option value="">Select…</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>In progress</option>
+            </select>
+          </div>
+
+          <div class="academy-form-section full"><strong>Program Needs</strong></div>
+
+          <div>
+            <label for="startDate">Preferred start date *</label>
+            <input id="startDate" name="startDate" type="date" required>
+          </div>
+
+          <div class="full academy-note-line">
+            <em>Schedule: Full-time (Mon–Fri)</em>
+          </div>
+
+          <div class="full">
+            <label for="notes">Allergies / medical notes / anything else we should know?</label>
+            <textarea id="notes" name="notes"></textarea>
+          </div>
+
+          <div class="full academy-check-row">
+            <input id="consent" name="consent" type="checkbox" required>
+            <label for="consent">I confirm the information provided is accurate and consent to be contacted.</label>
+          </div>
+
+          <div id="status" class="academy-status" aria-live="polite"></div>
+
+          <div class="full academy-submit-wrap">
+            <button id="submitBtn" class="pill-btn primary academy-submit-btn" type="submit">
+              Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('show');
+      });
+    }
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBXxlAaSdUikV3C3zcYzPDDzIu8hJVX9vRLaXNrYvd6QZU94rMBufTy0M5J9BLR-U30w/exec";
+
+    const enrollModal = document.getElementById('enrollModal');
+    const openEnrollButtons = document.querySelectorAll('[data-open-enroll]');
+    const closeEnrollButtons = document.querySelectorAll('[data-close-enroll]');
+    const reqForm = document.getElementById('reqForm');
+    const statusBox = document.getElementById('status');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function openEnrollModal() {
+      if (!enrollModal) return;
+      enrollModal.classList.add('show');
+      enrollModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeEnrollModal() {
+      if (!enrollModal) return;
+      enrollModal.classList.remove('show');
+      enrollModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    openEnrollButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openEnrollModal();
+      });
+    });
+
+    closeEnrollButtons.forEach(btn => {
+      btn.addEventListener('click', closeEnrollModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && enrollModal && enrollModal.classList.contains('show')) {
+        closeEnrollModal();
+      }
+    });
+
+    function showStatus(msg, ok = true) {
+      statusBox.className = 'academy-status ' + (ok ? 'ok' : 'err');
+      statusBox.textContent = msg;
+    }
+
+    if (reqForm) {
+      reqForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!reqForm.reportValidity()) return;
+
+        const hp = document.getElementById('hp');
+        if (hp && hp.value) {
+          showStatus('Submission blocked.', false);
+          return;
+        }
+
+        submitBtn.disabled = true;
+        showStatus('Submitting…', true);
+
+        try {
+          const fd = new FormData(reqForm);
+          fd.set('consent', document.getElementById('consent').checked ? 'Yes' : 'No');
+          fd.append('_meta', JSON.stringify({
+            submittedAt: new Date().toISOString(),
+            page: location.href
+          }));
+
+          const res = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: fd
+          });
+
+          if (!res.ok) throw new Error('Bad status');
+
+          showStatus("Thanks! Your request has been received. We'll be in touch soon.", true);
+          reqForm.reset();
+        } catch (err) {
+          try {
+            const fdFallback = new FormData(reqForm);
+            fdFallback.set('consent', document.getElementById('consent').checked ? 'Yes' : 'No');
+
+            await fetch(SCRIPT_URL, {
+              method: 'POST',
+              body: fdFallback,
+              mode: 'no-cors'
+            });
+
+            showStatus("Thanks! Your request has been received. We'll be in touch soon.", true);
+            reqForm.reset();
+          } catch (fallbackErr) {
+            showStatus("Something went wrong while submitting. Please try again.", false);
+          }
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+
+  <div id="academyChatMount"></div>
+  <script>
+    fetch("chat-widget.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("academyChatMount").innerHTML = html;
+      });
+  </script>
+</body>
+</html>
