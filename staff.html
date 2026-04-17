@@ -419,11 +419,44 @@
     }
 
     .teacher-card {
-      padding: 24px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       gap: 14px;
       background: linear-gradient(180deg, #fff, #fcfffd);
+    }
+
+    .teacher-photo-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #eef6f4, #f7faf9);
+      border: 1px solid rgba(36, 50, 58, 0.06);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .teacher-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .teacher-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--accent-strong);
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.5;
+      background:
+        radial-gradient(circle at top left, rgba(90,166,154,0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(110,167,222,0.12), transparent 28%),
+        #f7fbfa;
     }
 
     .teacher-card h3 {
@@ -465,6 +498,13 @@
       background: var(--accent);
       color: #fff;
       transform: translateY(-2px);
+    }
+
+    .teacher-link.disabled {
+      background: #eef2f4;
+      color: #708089;
+      cursor: default;
+      pointer-events: none;
     }
 
     .cta-card {
@@ -914,6 +954,9 @@
 
           <div class="teacher-grid">
             <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <img class="teacher-photo" src="academy-media/lynsey-farrow.png" alt="Lynsey Farrow" />
+              </div>
               <h3>Lynsey Farrow</h3>
               <p class="teacher-role">Director</p>
               <p class="teacher-copy">Learn more about Lynsey and her role in leading The Academy.</p>
@@ -921,6 +964,9 @@
             </div>
 
             <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <img class="teacher-photo" src="academy-media/caressa-dotson.png" alt="Caressa Dotson" />
+              </div>
               <h3>Caressa Dotson</h3>
               <p class="teacher-role">Assistant Director</p>
               <p class="teacher-copy">Learn more about Caressa and her role in supporting children, staff, and families.</p>
@@ -940,10 +986,93 @@
 
           <div class="teacher-grid">
             <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <img class="teacher-photo" src="academy-media/rosa-thompson.png" alt="Rosa Thompson" />
+              </div>
               <h3>Rosa Thompson</h3>
-              <p class="teacher-role">Infant Teacher</p>
+              <p class="teacher-role">Infant Room • Assistant Teacher</p>
               <p class="teacher-copy">Learn more about Rosa and her care for our youngest children at The Academy.</p>
               <a class="teacher-link" href="rosa-thompson.html">View Profile</a>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <img class="teacher-photo" src="academy-media/brittany-sholar.png" alt="Brittany Sholar" />
+              </div>
+              <h3>Brittany Sholar</h3>
+              <p class="teacher-role">Infant Room • Head Teacher</p>
+              <p class="teacher-copy">Learn more about Brittany and her role in caring for and teaching our youngest children.</p>
+              <a class="teacher-link" href="brittany-sholar.html">View Profile</a>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <img class="teacher-photo" src="academy-media/kahlia-jackson.png" alt="Kahlia Jackson" />
+              </div>
+              <h3>Kahlia Jackson</h3>
+              <p class="teacher-role">Infant Room • Float/Assistant Teacher</p>
+              <p class="teacher-copy">Kahlia’s profile will be added soon.</p>
+              <span class="teacher-link disabled">Profile Coming Soon</span>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
+              </div>
+              <h3>Azavaianna Williams</h3>
+              <p class="teacher-role">Ones Room • Assistant Teacher</p>
+              <p class="teacher-copy">Azavaianna’s profile will be added soon.</p>
+              <span class="teacher-link disabled">Profile Coming Soon</span>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <img class="teacher-photo" src="academy-media/riley-brodeur.png" alt="Riley Brodeur" />
+              </div>
+              <h3>Riley Brodeur</h3>
+              <p class="teacher-role">Twos Room • Head Teacher</p>
+              <p class="teacher-copy">Riley’s profile will be added soon.</p>
+              <span class="teacher-link disabled">Profile Coming Soon</span>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
+              </div>
+              <h3>Allesha Parker</h3>
+              <p class="teacher-role">Twos Room • Assistant Teacher</p>
+              <p class="teacher-copy">Allesha’s profile will be added soon.</p>
+              <span class="teacher-link disabled">Profile Coming Soon</span>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
+              </div>
+              <h3>Alisa Norvell</h3>
+              <p class="teacher-role">Threes Room • Head Teacher</p>
+              <p class="teacher-copy">Alisa’s profile will be added soon.</p>
+              <span class="teacher-link disabled">Profile Coming Soon</span>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <img class="teacher-photo" src="academy-media/maddie-switzer.png" alt="Madelyn Switzer" />
+              </div>
+              <h3>Madelyn Switzer</h3>
+              <p class="teacher-role">Fours Room • Head Teacher</p>
+              <p class="teacher-copy">Madelyn’s profile will be added soon.</p>
+              <span class="teacher-link disabled">Profile Coming Soon</span>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-photo-wrap">
+                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
+              </div>
+              <h3>Jaime Foley</h3>
+              <p class="teacher-role">3s and 4s • Floater</p>
+              <p class="teacher-copy">Jaime’s profile will be added soon.</p>
+              <span class="teacher-link disabled">Profile Coming Soon</span>
             </div>
           </div>
         </div>
