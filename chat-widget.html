@@ -23,58 +23,93 @@
     right: 22px;
     bottom: 98px;
     width: 360px;
+    max-width: calc(100vw - 24px);
     height: 540px;
     background: #fff;
+    border: 1px solid rgba(36, 50, 58, 0.08);
     border-radius: 24px;
     box-shadow: 0 24px 60px rgba(17, 22, 29, 0.18);
-    display: none;
-    flex-direction: column;
     overflow: hidden;
     z-index: 9999;
+    display: none;
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  .academy-chat-widget.show { display: flex; }
+  .academy-chat-widget.show {
+    display: flex;
+    flex-direction: column;
+  }
 
   .academy-chat-header {
     background: linear-gradient(135deg, #5aa69a, #3f8f82);
     color: #fff;
-    padding: 16px;
+    padding: 16px 18px;
   }
 
   .academy-chat-header-top {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .academy-chat-header h3 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .academy-chat-header p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.92);
   }
 
   .academy-chat-close-btn {
     border: none;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.18);
     color: #fff;
-    border-radius: 8px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
   }
 
   .academy-chat-messages {
     flex: 1;
-    padding: 14px;
     overflow-y: auto;
+    padding: 16px;
     background: #f8f6f2;
   }
 
-  .academy-chat-row { margin-bottom: 10px; display: flex; }
-  .academy-chat-row.user { justify-content: flex-end; }
+  .academy-chat-row {
+    display: flex;
+    margin-bottom: 12px;
+  }
+
+  .academy-chat-row.bot {
+    justify-content: flex-start;
+  }
+
+  .academy-chat-row.user {
+    justify-content: flex-end;
+  }
 
   .academy-chat-bubble {
-    padding: 10px 12px;
-    border-radius: 14px;
-    max-width: 80%;
+    max-width: 84%;
+    padding: 11px 13px;
+    border-radius: 16px;
     font-size: 14px;
+    line-height: 1.45;
+    word-break: break-word;
   }
 
   .academy-chat-row.bot .academy-chat-bubble {
-    background: #fff;
+    background: #ffffff;
+    color: #24323a;
+    border: 1px solid rgba(36, 50, 58, 0.08);
   }
 
   .academy-chat-row.user .academy-chat-bubble {
@@ -82,135 +117,332 @@
     color: #fff;
   }
 
-  .academy-chat-panel { padding: 12px; }
+  .academy-chat-panel {
+    background: #fff;
+    border-top: 1px solid rgba(36, 50, 58, 0.08);
+    padding: 12px 14px 14px;
+  }
+
+  .academy-chat-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 
   .academy-chat-quick button {
-    margin: 4px;
-    padding: 6px 10px;
+    border: 1px solid rgba(36, 50, 58, 0.12);
+    background: #fff;
+    color: #29424a;
     border-radius: 999px;
-    border: 1px solid #ccc;
+    padding: 8px 12px;
+    font-size: 12px;
     cursor: pointer;
+  }
+
+  .academy-chat-quick button:hover {
+    background: #f6faf9;
+  }
+
+  .academy-chat-other-wrap {
+    margin-top: 10px;
   }
 
   .academy-chat-other-btn {
     width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    background: #eef4f2;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
+    padding: 11px 12px;
+    font-size: 14px;
     cursor: pointer;
+    background: #eef4f2;
+    color: #29424a;
     font-weight: 600;
   }
 
-  .academy-chat-form { display: none; margin-top: 10px; }
-  .academy-chat-form.show { display: block; }
+  .academy-chat-form {
+    display: none;
+    margin-top: 12px;
+  }
+
+  .academy-chat-form.show {
+    display: block;
+  }
 
   .academy-chat-form input,
   .academy-chat-form textarea {
     width: 100%;
-    margin-bottom: 8px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(36, 50, 58, 0.14);
+    border-radius: 12px;
+    padding: 11px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .academy-chat-form textarea {
+    min-height: 88px;
+    resize: none;
+  }
+
+  .academy-chat-form input:focus,
+  .academy-chat-form textarea:focus {
+    outline: none;
+    border-color: #5aa69a;
+    box-shadow: 0 0 0 4px rgba(90, 166, 154, 0.12);
+  }
+
+  .academy-chat-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .academy-chat-send,
+  .academy-chat-secondary {
+    flex: 1;
+    border: none;
+    border-radius: 12px;
+    padding: 11px 12px;
+    font-size: 14px;
+    cursor: pointer;
   }
 
   .academy-chat-send {
-    width: 100%;
     background: #5aa69a;
     color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
+  }
+
+  .academy-chat-secondary {
+    background: #dfe7e4;
+    color: #29424a;
+  }
+
+  @media (max-width: 700px) {
+    .academy-chat-launcher {
+      right: 14px;
+      bottom: 14px;
+      width: 58px;
+      height: 58px;
+    }
+
+    .academy-chat-widget {
+      right: 12px;
+      bottom: 82px;
+      width: calc(100vw - 24px);
+      height: 78vh;
+      max-height: 640px;
+    }
   }
 </style>
 
 <div class="academy-chat-widget" id="academyChatWidget">
   <div class="academy-chat-header">
     <div class="academy-chat-header-top">
-      <strong>The Academy at VUMC</strong>
-      <button onclick="academyToggleChat()" class="academy-chat-close-btn">×</button>
+      <h3>The Academy at VUMC</h3>
+      <button class="academy-chat-close-btn" type="button" onclick="academyToggleChat()">×</button>
     </div>
+    <p>Quick answers for busy days</p>
   </div>
 
   <div class="academy-chat-messages" id="academyChatMessages">
     <div class="academy-chat-row bot">
       <div class="academy-chat-bubble">
-        Hi! Ask about hours, meals, potty training, openings, enrollment, or tours.
+        Hi! Ask about hours, meals, potty training, location, openings, enrollment, or scheduling a tour.
       </div>
     </div>
   </div>
 
   <div class="academy-chat-panel">
     <div class="academy-chat-quick">
-      <button onclick="academyQuickAsk('What are your hours?')">Hours</button>
-      <button onclick="academyQuickAsk('What is your phone number?')">Phone</button>
-      <button onclick="academyQuickAsk('Do you provide lunch?')">Meals</button>
-      <button onclick="academyQuickAsk('When does potty training start?')">Potty Training</button>
-      <button onclick="academyQuickAsk('Are there any openings?')">Openings</button>
-      <button onclick="academyQuickAsk('How do I schedule a tour?')">Tour</button>
+      <button type="button" onclick="academyQuickAsk('What are your hours?')">Hours</button>
+      <button type="button" onclick="academyQuickAsk('What is your phone number?')">Phone</button>
+      <button type="button" onclick="academyQuickAsk('Do you provide lunch?')">Meals</button>
+      <button type="button" onclick="academyQuickAsk('When does potty training start?')">Potty Training</button>
+      <button type="button" onclick="academyQuickAsk('Are there any openings?')">Openings</button>
+      <button type="button" onclick="academyQuickAsk('How do I schedule a tour?')">Tour</button>
     </div>
 
-    <button class="academy-chat-other-btn" onclick="academyToggleOtherQuestion()">
-      I have a different question
-    </button>
+    <div class="academy-chat-other-wrap">
+      <button class="academy-chat-other-btn" type="button" onclick="academyToggleOtherQuestion()">
+        I have a different question
+      </button>
+    </div>
 
     <div class="academy-chat-form" id="academyChatForm">
       <input type="text" id="academyChatName" placeholder="Your name" required>
       <input type="email" id="academyChatEmail" placeholder="Your email" required>
       <textarea id="academyChatInput" placeholder="Type your question..." required></textarea>
-      <button class="academy-chat-send" onclick="academySendChat()">Send</button>
+      <div class="academy-chat-actions">
+        <button class="academy-chat-send" type="button" onclick="academySendChat()">Send</button>
+        <button class="academy-chat-secondary" type="button" onclick="academyTriggerEnrollFromChat()">Enroll</button>
+      </div>
     </div>
   </div>
 </div>
 
-<button class="academy-chat-launcher" onclick="academyToggleChat()">💬</button>
+<button class="academy-chat-launcher" id="academyChatLauncher" type="button" aria-label="Open academy chat" onclick="academyToggleChat()">
+  💬
+</button>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxE3Hdubuv-ggKSm6AeiwZ6K3mEZ4xkxF0_tjmTbXfWWczLxTxe4D5TOPX9K44kNcs3Fg/exec";
+  const ACADEMY_CHAT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxE3Hdubuv-ggKSm6AeiwZ6K3mEZ4xkxF0_tjmTbXfWWczLxTxe4D5TOPX9K44kNcs3Fg/exec";
+  const ACADEMY_TOUR_URL = "https://academy.versaillesumc.org/contact";
 
-function academyToggleChat() {
-  document.getElementById("academyChatWidget").classList.toggle("show");
-}
-
-function academyToggleOtherQuestion() {
-  document.getElementById("academyChatForm").classList.toggle("show");
-}
-
-function academyAddChatMessage(text, who) {
-  const row = document.createElement("div");
-  row.className = "academy-chat-row " + who;
-  row.innerHTML = '<div class="academy-chat-bubble">'+text+'</div>';
-  document.getElementById("academyChatMessages").appendChild(row);
-}
-
-function academyQuickAsk(q) {
-  academyAddChatMessage(q, "user");
-  academyRequestChat(q, "", "");
-}
-
-function academySendChat() {
-  const name = document.getElementById("academyChatName").value.trim();
-  const email = document.getElementById("academyChatEmail").value.trim();
-  const msg = document.getElementById("academyChatInput").value.trim();
-
-  if (!name || !email || !msg) {
-    academyAddChatMessage("Please fill out your name, email, and question.", "bot");
-    return;
+  function academyToggleChat() {
+    const widget = document.getElementById("academyChatWidget");
+    if (!widget) return;
+    widget.classList.toggle("show");
   }
 
-  academyAddChatMessage(msg, "user");
-  academyRequestChat(msg, name, email);
-}
+  function academyToggleOtherQuestion(forceOpen) {
+    const form = document.getElementById("academyChatForm");
+    if (!form) return;
 
-function academyRequestChat(message, name, email) {
-  const script = document.createElement("script");
-  script.src = SCRIPT_URL +
-    "?q=" + encodeURIComponent(message) +
-    "&name=" + encodeURIComponent(name) +
-    "&email=" + encodeURIComponent(email);
+    const shouldOpen = typeof forceOpen === "boolean"
+      ? forceOpen
+      : !form.classList.contains("show");
 
-  document.body.appendChild(script);
-}
+    form.classList.toggle("show", shouldOpen);
+
+    if (shouldOpen) {
+      setTimeout(function() {
+        const input = document.getElementById("academyChatInput");
+        if (input) input.focus();
+      }, 100);
+    }
+  }
+
+  function academyAddChatMessage(text, who) {
+    const messages = document.getElementById("academyChatMessages");
+    if (!messages) return;
+
+    const row = document.createElement("div");
+    row.className = "academy-chat-row " + who;
+
+    const bubble = document.createElement("div");
+    bubble.className = "academy-chat-bubble";
+    bubble.innerHTML = text;
+
+    row.appendChild(bubble);
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function academyEscapeHtml(str) {
+    return String(str || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function academyQuickAsk(question) {
+    academyAddChatMessage(academyEscapeHtml(question), "user");
+    academyRequestChat(question, "", "");
+  }
+
+  function academyTriggerEnrollFromChat() {
+    const enrollBtn =
+      document.querySelector("[data-open-enroll]") ||
+      document.querySelector('a[href="#"][data-open-enroll]') ||
+      document.querySelector(".topbar [data-open-enroll]");
+
+    if (enrollBtn) {
+      enrollBtn.click();
+      academyAddChatMessage("I opened the enrollment form for you.", "bot");
+    } else {
+      academyAddChatMessage("Please use the Enroll button at the top of the page.", "bot");
+    }
+  }
+
+  function academyOpenTourFromChat() {
+    window.location.href = ACADEMY_TOUR_URL;
+  }
+
+  function academyHandleSpecialAction(action, originalQuestion) {
+    const q = (originalQuestion || "").toLowerCase();
+
+    if (action === "enroll") {
+      academyTriggerEnrollFromChat();
+      return;
+    }
+
+    if (action === "tour") {
+      academyAddChatMessage("Taking you to the contact page to schedule a tour.", "bot");
+      setTimeout(function() {
+        academyOpenTourFromChat();
+      }, 500);
+      return;
+    }
+
+    if (
+      q.includes("opening") ||
+      q.includes("openings") ||
+      q.includes("availability") ||
+      q.includes("spot")
+    ) {
+      academyTriggerEnrollFromChat();
+    }
+  }
+
+  function academyRequestChat(message, name, email) {
+    const callbackName = "academyChatCallback_" + Date.now();
+
+    window[callbackName] = function(response) {
+      try {
+        if (response && response.reply) {
+          academyAddChatMessage(
+            academyEscapeHtml(response.reply).replace(/\n/g, "<br>"),
+            "bot"
+          );
+          academyHandleSpecialAction(response.action, message);
+        } else {
+          academyAddChatMessage("Thanks for your message. Our team will follow up soon.", "bot");
+        }
+      } finally {
+        delete window[callbackName];
+      }
+    };
+
+    const script = document.createElement("script");
+    script.src =
+      ACADEMY_CHAT_SCRIPT_URL +
+      "?action=chat" +
+      "&callback=" + encodeURIComponent(callbackName) +
+      "&q=" + encodeURIComponent(message) +
+      "&name=" + encodeURIComponent(name || "") +
+      "&email=" + encodeURIComponent(email || "") +
+      "&page=" + encodeURIComponent(window.location.href) +
+      "&ua=" + encodeURIComponent(navigator.userAgent);
+
+    script.async = true;
+    script.onerror = function() {
+      academyAddChatMessage("We had trouble connecting. Please call us at 859-879-1743.", "bot");
+    };
+
+    document.body.appendChild(script);
+  }
+
+  function academySendChat() {
+    const name = (document.getElementById("academyChatName")?.value || "").trim();
+    const email = (document.getElementById("academyChatEmail")?.value || "").trim();
+    const input = document.getElementById("academyChatInput");
+    const message = (input?.value || "").trim();
+
+    if (!name || !email || !message) {
+      academyAddChatMessage("Please enter your name, email, and question.", "bot");
+      return;
+    }
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailOk) {
+      academyAddChatMessage("Please enter a valid email address.", "bot");
+      return;
+    }
+
+    academyAddChatMessage(academyEscapeHtml(message), "user");
+    if (input) input.value = "";
+    academyRequestChat(message, name, email);
+  }
 </script>
