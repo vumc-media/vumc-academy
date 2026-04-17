@@ -457,7 +457,6 @@
       text-align: center;
     }
 
-    /* ENROLL MODAL */
     .academy-modal {
       position: fixed;
       inset: 0;
@@ -735,7 +734,7 @@
     <div class="container">
       <div class="nav-wrap">
         <a class="brand" href="index.html">
-          <img class="brand-mark" src="https://academy.versaillesumc.org/_/rsrc/1745118609860/config/customLogo.gif?revision=2" alt="The Academy at VUMC logo" />
+          <img class="brand-mark" src="academy-media/academy-logo.png" alt="The Academy at VUMC logo" />
           <div>
             <p class="brand-name">The Academy at VUMC</p>
             <p class="brand-tagline">A ministry of Versailles United Methodist Church</p>
@@ -1150,36 +1149,37 @@
       });
     }
   </script>
+
   <div id="academyChatMount"></div>
-<script>
-  (function () {
-    if (document.getElementById("academyChatWidget")) return;
+  <script>
+    (function () {
+      if (document.getElementById("academyChatWidget")) return;
 
-    fetch("chat-widget.html?v=3")
-      .then(res => res.text())
-      .then(html => {
-        const mount = document.getElementById("academyChatMount");
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
+      fetch("chat-widget.html?v=3")
+        .then(res => res.text())
+        .then(html => {
+          const mount = document.getElementById("academyChatMount");
+          const temp = document.createElement("div");
+          temp.innerHTML = html;
 
-        const scripts = [];
-        Array.from(temp.childNodes).forEach(node => {
-          if (node.nodeType === 1 && node.tagName.toLowerCase() === "script") {
-            scripts.push(node);
-          } else {
-            mount.appendChild(node.cloneNode(true));
-          }
-        });
+          const scripts = [];
+          Array.from(temp.childNodes).forEach(node => {
+            if (node.nodeType === 1 && node.tagName.toLowerCase() === "script") {
+              scripts.push(node);
+            } else {
+              mount.appendChild(node.cloneNode(true));
+            }
+          });
 
-        scripts.forEach(old => {
-          const s = document.createElement("script");
-          if (old.src) s.src = old.src;
-          else s.textContent = old.textContent;
-          document.body.appendChild(s);
-        });
-      })
-      .catch(err => console.error("Chat widget failed:", err));
-  })();
-</script>
+          scripts.forEach(old => {
+            const s = document.createElement("script");
+            if (old.src) s.src = old.src;
+            else s.textContent = old.textContent;
+            document.body.appendChild(s);
+          });
+        })
+        .catch(err => console.error("Chat widget failed:", err));
+    })();
+  </script>
 </body>
 </html>
