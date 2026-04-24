@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Academy at VUMC</title>
   <meta name="description" content="The Academy at Versailles UMC is a Christ-centered preschool where faith and learning meet for children ages 6 weeks to 5 years." />
-    <link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
   <style>
     :root {
       --bg: #f7f4ef;
@@ -307,6 +308,89 @@
       color: var(--muted);
       margin: 0;
       max-width: 760px;
+    }
+
+    .teacher-feature {
+      padding: 68px 0;
+      background:
+        radial-gradient(circle at top left, rgba(255,75,62,0.10), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(141,179,63,0.14), transparent 30%),
+        linear-gradient(135deg, #fff8ee, #f2faf7);
+    }
+
+    .teacher-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: stretch;
+    }
+
+    .teacher-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .teacher-content {
+      padding: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .teacher-date {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      background: #0f6972;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .teacher-content h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      color: #0f6972;
+      letter-spacing: -0.03em;
+    }
+
+    .teacher-content p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .teacher-list {
+      margin: 10px 0 18px;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .teacher-list li::before {
+      content: "✨ ";
+    }
+
+    .teacher-quote {
+      background: var(--surface-soft);
+      border-left: 5px solid #8db33f;
+      border-radius: 18px;
+      padding: 16px 18px;
+      color: #0f6972 !important;
+      font-weight: 800;
+      margin-top: 8px !important;
     }
 
     .card-grid {
@@ -679,6 +763,14 @@
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .teacher-card {
+        grid-template-columns: 1fr;
+      }
+
+      .teacher-card img {
+        height: auto;
+      }
     }
 
     @media (max-width: 760px) {
@@ -696,14 +788,16 @@
         padding: 56px 0 48px;
       }
 
-      .section {
+      .section,
+      .teacher-feature {
         padding: 54px 0;
       }
 
       .content-card,
       .cta-card,
       .wide-card,
-      .info-card {
+      .info-card,
+      .teacher-content {
         padding: 24px;
       }
 
@@ -726,6 +820,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="topbar">
     <div class="container">
@@ -750,7 +845,7 @@
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="index.html" class="active">Home</a>
           <a href="mission.html">Mission</a>
-          <a href='/staff'>Staff</a>
+          <a href="/staff">Staff</a>
           <a href="calendar.html">Calendar</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
@@ -766,6 +861,7 @@
         <div class="mobile-menu-inner">
           <a href="index.html">Home</a>
           <a href="mission.html">Mission</a>
+          <a href="/staff">Staff</a>
           <a href="calendar.html">Calendar</a>
           <a href="contact.html">Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
@@ -800,6 +896,39 @@
               <div class="hero-item">Breakfast and snacks included</div>
               <div class="hero-item">Tours available by appointment</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="teacher-feature">
+      <div class="container">
+        <div class="teacher-card">
+          <img src="media/AcademyTeachersAppreciateWeek.png" alt="Teacher Appreciation Week May 4 through 8" />
+
+          <div class="teacher-content">
+            <span class="teacher-date">May 4–8</span>
+            <h2>Teacher Appreciation Week</h2>
+            <p>
+              Coming up very soon, we celebrate the incredible teachers of The Academy and all those who pour into the lives of our children every single day.
+            </p>
+            <p>
+              Let’s come together as a church family in a simple but meaningful way:
+            </p>
+
+            <ul class="teacher-list">
+              <li>Drop off a small gift</li>
+              <li>Bring a gift card for coffee, restaurants, or supplies</li>
+              <li>Provide lunch, snacks, or treats for our teachers</li>
+            </ul>
+
+            <p>
+              These small acts of kindness remind our teachers how valued and appreciated they truly are.
+            </p>
+
+            <p class="teacher-quote">
+              “Great teachers plant seeds that grow forever.”
+            </p>
           </div>
         </div>
       </div>
@@ -933,6 +1062,7 @@
         <div class="footer-card">
           <h4>Quick Links</h4>
           <a href="mission.html">Mission</a>
+          <a href="/staff">Staff</a>
           <a href="calendar.html">Calendar</a>
           <a href="contact.html">Contact</a>
         </div>
@@ -953,7 +1083,7 @@
     <div class="academy-modal-backdrop" data-close-enroll></div>
 
     <div class="academy-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="enrollModalTitle">
-      <button class="academy-modal-close" type="button" aria-label="Close enrollment form" data-close-enroll">×</button>
+      <button class="academy-modal-close" type="button" aria-label="Close enrollment form" data-close-enroll>×</button>
 
       <div class="academy-modal-header">
         <div class="eyebrow" style="color: var(--accent); margin-bottom: 8px;">Enrollment Request</div>
