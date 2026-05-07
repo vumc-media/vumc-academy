@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +50,8 @@
       {"@type":"Question","name":"What ages does The Academy at VUMC serve?","acceptedAnswer":{"@type":"Answer","text":"The Academy provides preschool and childcare for children ages 6 weeks through 5 years."}},
       {"@type":"Question","name":"Where is The Academy at VUMC located?","acceptedAnswer":{"@type":"Answer","text":"The Academy at VUMC is located in Versailles, Kentucky and serves families throughout Woodford County and nearby communities."}},
       {"@type":"Question","name":"Do you offer preschool tours?","acceptedAnswer":{"@type":"Answer","text":"Yes. Families can contact The Academy to ask questions, learn about openings, and schedule a tour."}},
-      {"@type":"Question","name":"Is The Academy faith-based?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Academy is a Christ-centered preschool and a ministry of Versailles United Methodist Church."}}
+      {"@type":"Question","name":"Is The Academy faith-based?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Academy is a Christ-centered preschool and a ministry of Versailles United Methodist Church."}},
+      {"@type":"Question","name":"How do current families receive calendar updates and announcements?","acceptedAnswer":{"@type":"Answer","text":"The Academy uses Brightwheel for secure family communication, classroom updates, announcements, and calendar information for registered families."}}
     ]
   }
   </script>
@@ -556,6 +558,48 @@
       max-width: 760px;
     }
 
+    .brightwheel-card {
+      background:
+        radial-gradient(circle at top right, rgba(32, 89, 191, 0.10), transparent 34%),
+        linear-gradient(135deg, #ffffff, #f4f9ff);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .brightwheel-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .brightwheel-logo-wrap {
+      background: #2059bf;
+      border-radius: 26px;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 34px;
+      box-shadow: 0 16px 34px rgba(32, 89, 191, 0.18);
+    }
+
+    .brightwheel-logo-wrap img {
+      width: min(100%, 300px);
+      height: auto;
+      object-fit: contain;
+    }
+
+    .privacy-note {
+      margin-top: 18px;
+      background: rgba(28, 138, 123, 0.09);
+      border-left: 5px solid var(--accent);
+      border-radius: 18px;
+      padding: 16px 18px;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
     .site-footer {
       background: var(--dark);
       color: #fff;
@@ -811,7 +855,8 @@
       .card-grid,
       .two-column,
       .mini-grid,
-      .footer-grid {
+      .footer-grid,
+      .brightwheel-layout {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -833,6 +878,7 @@
       .two-column,
       .mini-grid,
       .footer-grid,
+      .brightwheel-layout,
       .academy-form {
         grid-template-columns: 1fr;
       }
@@ -896,7 +942,7 @@
   <header class="site-header">
     <div class="container">
       <div class="nav-wrap">
-        <a class="brand" href="index.html">
+        <a class='brand' href='/'>
           <img class="brand-mark" src="/academy-media/academy-logo.png" alt="The Academy at VUMC logo" />
           <div>
             <p class="brand-name">The Academy at VUMC</p>
@@ -905,27 +951,25 @@
         </a>
 
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="index.html" class="active">Home</a>
-          <a href="mission.html">Mission</a>
+          <a class='active' href='/'>Home</a>
+          <a href='/mission'>Mission</a>
           <a href="/staff">Staff</a>
-          <a href="calendar.html">Calendar</a>
-          <a href="contact.html">Contact</a>
+          <a href='/contact'>Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
         </nav>
 
         <div class="nav-actions">
-          <a class="pill-btn dark" href="contact.html">Schedule a Tour</a>
+          <a class='pill-btn dark' href='/contact'>Schedule a Tour</a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
         </div>
       </div>
 
       <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-inner">
-          <a href="index.html">Home</a>
-          <a href="mission.html">Mission</a>
+          <a href='/'>Home</a>
+          <a href='/mission'>Mission</a>
           <a href="/staff">Staff</a>
-          <a href="calendar.html">Calendar</a>
-          <a href="contact.html">Contact</a>
+          <a href='/contact'>Contact</a>
           <a href="https://www.versaillesumc.org/" target="_blank" rel="noopener">VUMC</a>
           <a href="#" data-open-enroll>Enroll</a>
         </div>
@@ -945,7 +989,7 @@
             </p>
             <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;">
               <a class="pill-btn primary" href="#" data-open-enroll>Enroll Now</a>
-              <a class="pill-btn light" href="contact.html">Schedule a Tour</a>
+              <a class='pill-btn light' href='/contact'>Schedule a Tour</a>
             </div>
           </div>
 
@@ -984,7 +1028,7 @@
           </div>
         </div>
       </div>
-      
+    </section>
 
     <section class="section">
       <div class="container">
@@ -1029,6 +1073,41 @@
             </p>
           </div>
           <div class="image-card" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="brightwheel">
+      <div class="container">
+        <div class="wide-card brightwheel-card">
+          <div class="brightwheel-layout">
+            <div class="brightwheel-logo-wrap">
+              <img src="https://lever-client-logos.s3.amazonaws.com/77342cb1-6239-438a-8efe-08fa88408a1a-1547266578344.png" alt="Brightwheel logo" loading="lazy" />
+            </div>
+
+            <div>
+              <div class="eyebrow" style="color: var(--accent);">Family Communication</div>
+              <h2 class="section-title">Current families receive updates through Brightwheel.</h2>
+              <p class="section-copy">
+                The Academy uses Brightwheel to communicate with registered families in a secure and private way. Classroom updates, announcements, reminders, and calendar information are shared directly with enrolled families through the Brightwheel app.
+              </p>
+
+              <div class="mini-grid">
+                <div class="mini-block">
+                  <h4>Private Parent Updates</h4>
+                  <p>Brightwheel helps families stay connected to classroom communication, reminders, and important updates from The Academy.</p>
+                </div>
+                <div class="mini-block">
+                  <h4>Calendar Details Stay Secure</h4>
+                  <p>To help protect children and families, detailed preschool events and schedules are shared privately with registered families instead of being posted publicly online.</p>
+                </div>
+              </div>
+
+              <div class="privacy-note">
+                Public website information is intentionally limited for the safety and privacy of our students, families, teachers, and preschool community.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1102,6 +1181,10 @@
               <h4>Is The Academy faith-based?</h4>
               <p>Yes. The Academy is a Christ-centered preschool and a ministry of Versailles United Methodist Church.</p>
             </div>
+            <div class="mini-block">
+              <h4>How do current families receive calendar updates?</h4>
+              <p>Current families receive classroom updates, announcements, and calendar information through Brightwheel. Detailed student and event schedules are not posted publicly for safety and privacy.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1116,7 +1199,7 @@
             We would love to help your family explore The Academy, ask questions, and take the next step toward enrollment.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;">
-            <a class="pill-btn light" href="contact.html">Contact Us</a>
+            <a class='pill-btn light' href='/contact'>Contact Us</a>
             <a class="pill-btn primary" href="#" data-open-enroll>Start Enrollment</a>
           </div>
         </div>
@@ -1141,10 +1224,9 @@
 
         <div class="footer-card">
           <h4>Quick Links</h4>
-          <a href="mission.html">Mission</a>
+          <a href='/mission'>Mission</a>
           <a href="/staff">Staff</a>
-          <a href="calendar.html">Calendar</a>
-          <a href="contact.html">Contact</a>
+          <a href='/contact'>Contact</a>
         </div>
 
         <div class="footer-card">
