@@ -560,39 +560,49 @@
 
     .brightwheel-card {
       background:
-        radial-gradient(circle at top right, rgba(32, 89, 191, 0.10), transparent 34%),
-        linear-gradient(135deg, #ffffff, #f4f9ff);
+        radial-gradient(circle at top right, rgba(32, 89, 191, 0.08), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(28, 138, 123, 0.08), transparent 30%),
+        #ffffff;
       overflow: hidden;
       position: relative;
     }
 
-    .brightwheel-layout {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 28px;
-      align-items: center;
+    .brightwheel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .brightwheel-logo-wrap {
+    .brightwheel-copy {
+      max-width: 780px;
+    }
+
+    .brightwheel-logo-badge {
+      flex: 0 0 auto;
       background: #2059bf;
-      border-radius: 26px;
-      min-height: 260px;
+      border-radius: 22px;
+      padding: 18px 22px;
+      box-shadow: 0 14px 30px rgba(32, 89, 191, 0.16);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 34px;
-      box-shadow: 0 16px 34px rgba(32, 89, 191, 0.18);
+      min-width: 220px;
     }
 
-    .brightwheel-logo-wrap img {
-      width: min(100%, 300px);
+    .brightwheel-logo-badge img {
+      width: 180px;
       height: auto;
       object-fit: contain;
     }
 
+    .brightwheel-card .mini-grid {
+      margin-top: 26px;
+    }
+
     .privacy-note {
-      margin-top: 18px;
-      background: rgba(28, 138, 123, 0.09);
+      margin-top: 22px;
+      background: var(--surface-soft);
       border-left: 5px solid var(--accent);
       border-radius: 18px;
       padding: 16px 18px;
@@ -855,8 +865,7 @@
       .card-grid,
       .two-column,
       .mini-grid,
-      .footer-grid,
-      .brightwheel-layout {
+      .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -878,7 +887,6 @@
       .two-column,
       .mini-grid,
       .footer-grid,
-      .brightwheel-layout,
       .academy-form {
         grid-template-columns: 1fr;
       }
@@ -918,6 +926,20 @@
         max-height: calc(100vh - 16px);
         margin: 8px auto;
         border-radius: 22px;
+      }
+
+      .brightwheel-header {
+        display: grid;
+        gap: 20px;
+      }
+
+      .brightwheel-logo-badge {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .brightwheel-logo-badge img {
+        width: 170px;
       }
 
       .academy-modal-header,
@@ -1030,6 +1052,42 @@
       </div>
     </section>
 
+    <section class="section" id="brightwheel">
+      <div class="container">
+        <div class="wide-card brightwheel-card">
+          <div class="brightwheel-header">
+            <div class="brightwheel-copy">
+              <div class="eyebrow" style="color: var(--accent);">Family Communication</div>
+              <h2 class="section-title">Current families receive updates through Brightwheel.</h2>
+              <p class="section-copy">
+                The Academy uses Brightwheel to communicate with registered families in a secure and private way. Classroom updates, announcements, reminders, and calendar information are shared directly with enrolled families through the Brightwheel app.
+              </p>
+            </div>
+
+            <div class="brightwheel-logo-badge" aria-label="Brightwheel">
+              <img src="https://lever-client-logos.s3.amazonaws.com/77342cb1-6239-438a-8efe-08fa88408a1a-1547266578344.png" alt="Brightwheel logo" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-block">
+              <h4>Private Parent Updates</h4>
+              <p>Families stay connected to classroom communication, reminders, and important updates from The Academy.</p>
+            </div>
+
+            <div class="mini-block">
+              <h4>Calendar Details Stay Secure</h4>
+              <p>Detailed preschool events and student schedules are shared privately with registered families instead of being posted publicly online.</p>
+            </div>
+          </div>
+
+          <div class="privacy-note">
+            Public website information is intentionally limited for the safety and privacy of our students, families, teachers, and preschool community.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="eyebrow" style="color: var(--accent);">Why Families Choose The Academy</div>
@@ -1073,41 +1131,6 @@
             </p>
           </div>
           <div class="image-card" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="brightwheel">
-      <div class="container">
-        <div class="wide-card brightwheel-card">
-          <div class="brightwheel-layout">
-            <div class="brightwheel-logo-wrap">
-              <img src="https://mybrightwheel.com/wp-content/themes/_brightwheel/img/brightwheel-logo-white.svg" alt="Brightwheel logo" loading="lazy" />
-            </div>
-
-            <div>
-              <div class="eyebrow" style="color: var(--accent);">Family Communication</div>
-              <h2 class="section-title">Current families receive updates through Brightwheel.</h2>
-              <p class="section-copy">
-                The Academy uses Brightwheel to communicate with registered families in a secure and private way. Classroom updates, announcements, reminders, and calendar information are shared directly with enrolled families through the Brightwheel app.
-              </p>
-
-              <div class="mini-grid">
-                <div class="mini-block">
-                  <h4>Private Parent Updates</h4>
-                  <p>Brightwheel helps families stay connected to classroom communication, reminders, and important updates from The Academy.</p>
-                </div>
-                <div class="mini-block">
-                  <h4>Calendar Details Stay Secure</h4>
-                  <p>To help protect children and families, detailed preschool events and schedules are shared privately with registered families instead of being posted publicly online.</p>
-                </div>
-              </div>
-
-              <div class="privacy-note">
-                Public website information is intentionally limited for the safety and privacy of our students, families, teachers, and preschool community.
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
