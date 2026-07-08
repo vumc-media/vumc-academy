@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#8DB33F">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Preschool Staff in Versailles KY | The Academy at VUMC</title>
-  <meta name="description" content="Meet the caring preschool teachers and leadership team at The Academy at VUMC, a Christian childcare center serving families in Versailles, Kentucky." />
+  <title>Our Staff | The Academy at VUMC</title>
+  <meta name="description" content="Learn about the caring, trained preschool staff at The Academy at VUMC, a Christian childcare center serving families in Versailles, Kentucky." />
   
   <link rel="canonical" href="https://academy.versaillesumc.org/staff" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Preschool Staff in Versailles KY | The Academy at VUMC" />
-  <meta property="og:description" content="Meet the caring preschool teachers and leadership team at The Academy at VUMC, a Christian childcare center serving families in Versailles, Kentucky." />
+  <meta property="og:title" content="Our Staff | The Academy at VUMC" />
+  <meta property="og:description" content="Learn about the caring, trained preschool staff at The Academy at VUMC, a Christian childcare center serving families in Versailles, Kentucky." />
   <meta property="og:image" content="https://academy.versaillesumc.org/academy-media/academy-logo.png" />
   <meta property="og:url" content="https://academy.versaillesumc.org/staff" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -542,6 +542,121 @@
       pointer-events: none;
     }
 
+
+    .staff-values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .trust-card,
+    .standards-card,
+    .notice-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .trust-card {
+      padding: 28px 24px;
+      background: linear-gradient(180deg, #fff, #fcfffd);
+    }
+
+    .trust-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .trust-card h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+      line-height: 1.12;
+    }
+
+    .trust-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .standards-card {
+      margin-top: 34px;
+      padding: 36px;
+      background: linear-gradient(180deg, #fff, var(--surface-warm));
+    }
+
+    .standards-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 20px;
+    }
+
+    .standards-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .standards-list li {
+      position: relative;
+      padding-left: 32px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .standards-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .notice-card {
+      margin-top: 28px;
+      padding: 28px;
+      background:
+        radial-gradient(circle at top left, rgba(90,166,154,0.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(110,167,222,0.10), transparent 30%),
+        #fff;
+    }
+
+    .notice-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    .notice-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 880px;
+    }
+
     .cta-card {
       padding: 36px;
       background:
@@ -827,6 +942,8 @@
 
       .hero-inner,
       .teacher-grid,
+      .staff-values-grid,
+      .standards-grid,
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -835,6 +952,8 @@
     @media (max-width: 760px) {
       .hero-inner,
       .teacher-grid,
+      .staff-values-grid,
+      .standards-grid,
       .footer-grid,
       .academy-form {
         grid-template-columns: 1fr;
@@ -935,14 +1054,14 @@
       <div class="container">
         <div class="hero-inner">
           <div>
-            <div class="eyebrow">Meet Our Team</div>
-            <h1>Meet Our Preschool Staff in Versailles, KY</h1>
+            <div class="eyebrow">Our Academy Team</div>
+            <h1>Caring, trained staff for your child’s daily care and growth.</h1>
             <p>
-              Get to know the caring preschool teachers and leadership team who help create a safe, nurturing, and Christ-centered environment for children and families in Versailles, KY.
+              At The Academy at VUMC, families can expect a team-focused preschool environment where children are cared for by staff who are trained, supported, and committed to helping children feel safe, known, and loved.
             </p>
             <div class="hero-actions">
-              <a class="pill-btn primary" href="#leadership-team">Meet Our Team</a>
-              <a class='pill-btn light' href='/contact'>Contact Us</a>
+              <a class="pill-btn primary" href="#staff-care">Our Approach</a>
+              <a class='pill-btn light' href='/contact'>Schedule a Tour</a>
             </div>
           </div>
 
@@ -956,168 +1075,113 @@
             </div>
 
             <h3>What Families Can Expect</h3>
-            <p>Our team is committed to helping children feel safe, known, and encouraged every day.</p>
+            <p>Our staff works together to create a consistent, welcoming, and Christ-centered preschool experience.</p>
             <div class="hero-list">
-              <div class="hero-item">Caring leadership and support</div>
-              <div class="hero-item">Faith-filled learning environment</div>
-              <div class="hero-item">Age-appropriate care and guidance</div>
-              <div class="hero-item">Partnership with families</div>
+              <div class="hero-item">Trained and supported classroom staff</div>
+              <div class="hero-item">Safe, nurturing daily care</div>
+              <div class="hero-item">Age-appropriate learning and guidance</div>
+              <div class="hero-item">Communication and partnership with families</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="staff-care">
       <div class="container">
         <div class="eyebrow" style="color: var(--accent-strong);">Our Staff</div>
-        <h2 class="section-title">The people who help The Academy feel like home.</h2>
+        <h2 class="section-title">A team approach to preschool care.</h2>
         <p class="section-copy">
-          Every member of our Academy team plays an important role in creating a loving, engaging, and Christ-centered preschool environment for children and families in Versailles, Kentucky.
+          Because staffing can change over time, this page focuses on the values, training, and care standards that guide every person serving children at The Academy. Our goal is for families to feel confident when they apply, enroll, and entrust their children to our care.
         </p>
 
-        <div class="staff-section" id="leadership-team">
-          <div class="staff-section-head">
-            <div class="staff-kicker">Leadership Team</div>
-            <h3 class="staff-heading">Guiding the vision and daily life of The Academy.</h3>
-            <p class="staff-subcopy">
-              Our leadership team helps support families, staff, and the overall mission of The Academy.
+        <div class="staff-values-grid">
+          <div class="trust-card">
+            <div class="trust-icon">1</div>
+            <h3>Safe and Nurturing Care</h3>
+            <p>
+              Children are welcomed into a caring environment where safety, kindness, patience, and encouragement shape the rhythm of each day.
             </p>
           </div>
 
-          <div class="teacher-grid">
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <img class="teacher-photo" src="/academy-media/lynsey-farrow.png" alt="Lynsey Farrow" />
-              </div>
-              <h3>Lynsey Farrow</h3>
-              <p class="teacher-role">Director</p>
-              <p class="teacher-copy">Learn more about Lynsey and her role in leading The Academy.</p>
-              <a class='teacher-link' href='/director'>View Profile</a>
-            </div>
+          <div class="trust-card">
+            <div class="trust-icon">2</div>
+            <h3>Trained and Supported Staff</h3>
+            <p>
+              Our staff members receive guidance, support, and training so they can serve children with confidence, consistency, and care.
+            </p>
+          </div>
 
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <img class="teacher-photo" src="/academy-media/caressa-dotson.png" alt="Caressa Dotson" />
-              </div>
-              <h3>Caressa Dotson</h3>
-              <p class="teacher-role">Assistant Director</p>
-              <p class="teacher-copy">Learn more about Caressa and her role in supporting children, staff, and families.</p>
-              <a class='teacher-link' href='/assistant-director'>View Profile</a>
-            </div>
+          <div class="trust-card">
+            <div class="trust-icon">3</div>
+            <h3>Faith-Filled Learning</h3>
+            <p>
+              As a ministry of Versailles United Methodist Church, The Academy seeks to reflect Christian love through daily care, learning, and relationships.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">4</div>
+            <h3>Age-Appropriate Classrooms</h3>
+            <p>
+              Each classroom is shaped around the needs of the children in that stage of development, from infants through preschool-aged learners.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">5</div>
+            <h3>Family Partnership</h3>
+            <p>
+              We value communication with parents and guardians, working together to support each child’s growth, needs, and daily experience.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-icon">6</div>
+            <h3>Consistent Expectations</h3>
+            <p>
+              While individual staff may change, our expectations for care, safety, respect, and Christian hospitality remain steady.
+            </p>
           </div>
         </div>
 
-        <div class="staff-section" id="teaching-team">
-          <div class="staff-section-head">
-            <div class="staff-kicker">Teaching Team</div>
-            <h3 class="staff-heading">Nurturing, teaching, and encouraging children every day.</h3>
-            <p class="staff-subcopy">
-              Our teaching staff helps children learn, grow, and experience a caring classroom environment each day.
-            </p>
+        <div class="standards-card">
+          <div class="eyebrow" style="color: var(--accent-strong);">What Guides Our Team</div>
+          <h2 class="section-title">Parents can feel comfortable taking the next step.</h2>
+
+          <div class="standards-grid">
+            <div>
+              <p class="section-copy">
+                The Academy is built around more than one person or one classroom. Our staff culture is shaped by shared expectations that help children feel secure and help families know what to expect.
+              </p>
+            </div>
+
+            <ul class="standards-list">
+              <li>Care for children with warmth, patience, and respect.</li>
+              <li>Maintain safe, clean, and age-appropriate classroom environments.</li>
+              <li>Support children’s academic, social, emotional, and spiritual growth.</li>
+              <li>Communicate with families through appropriate Academy channels.</li>
+              <li>Work together as a team to support daily classroom needs.</li>
+              <li>Reflect the Christian values of compassion, kindness, and love.</li>
+            </ul>
           </div>
+        </div>
 
-          <div class="teacher-grid">
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <img class="teacher-photo" src="/academy-media/rosa-thompson.png" alt="Rosa Thompson" />
-              </div>
-              <h3>Rosa Thompson</h3>
-              <p class="teacher-role">Infant Room • Assistant Teacher</p>
-              <p class="teacher-copy">Learn more about Rosa and her care for our youngest children at The Academy.</p>
-              <a class='teacher-link' href='/rosa-thompson'>View Profile</a>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <img class="teacher-photo" src="/academy-media/brittany-sholar.png" alt="Brittany Sholar" />
-              </div>
-              <h3>Brittany Sholar</h3>
-              <p class="teacher-role">Infant Room • Head Teacher</p>
-              <p class="teacher-copy">Learn more about Brittany and her role in caring for and teaching our youngest children.</p>
-              <a class='teacher-link' href='/brittany-sholar'>View Profile</a>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <img class="teacher-photo" src="/academy-media/kahlia-jackson.png" alt="Kahlia Jackson" />
-              </div>
-              <h3>Kahlia Jackson</h3>
-              <p class="teacher-role">Infant Room • Float/Assistant Teacher</p>
-              <p class="teacher-copy">Kahlia’s profile will be added soon.</p>
-              <span class="teacher-link disabled">Profile Coming Soon</span>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
-              </div>
-              <h3>Azavaianna Williams</h3>
-              <p class="teacher-role">Ones Room • Assistant Teacher</p>
-              <p class="teacher-copy">Azavaianna’s profile will be added soon.</p>
-              <span class="teacher-link disabled">Profile Coming Soon</span>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <img class="teacher-photo" src="/academy-media/riley-brodeur.png" alt="Riley Brodeur" />
-              </div>
-              <h3>Riley Brodeur</h3>
-              <p class="teacher-role">Twos Room • Head Teacher</p>
-              <p class="teacher-copy">Riley’s profile will be added soon.</p>
-              <span class="teacher-link disabled">Profile Coming Soon</span>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
-              </div>
-              <h3>Allesha Parker</h3>
-              <p class="teacher-role">Twos Room • Assistant Teacher</p>
-              <p class="teacher-copy">Allesha’s profile will be added soon.</p>
-              <span class="teacher-link disabled">Profile Coming Soon</span>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
-              </div>
-              <h3>Alisa Norvell</h3>
-              <p class="teacher-role">Threes Room • Head Teacher</p>
-              <p class="teacher-copy">Alisa’s profile will be added soon.</p>
-              <span class="teacher-link disabled">Profile Coming Soon</span>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <img class="teacher-photo" src="/academy-media/maddie-switzer.png" alt="Madelyn Switzer" />
-              </div>
-              <h3>Madelyn Switzer</h3>
-              <p class="teacher-role">Fours Room • Head Teacher</p>
-              <p class="teacher-copy">Madelyn’s profile will be added soon.</p>
-              <span class="teacher-link disabled">Profile Coming Soon</span>
-            </div>
-
-            <div class="teacher-card">
-              <div class="teacher-photo-wrap">
-                <div class="teacher-photo-placeholder">Profile Photo<br />Coming Soon</div>
-              </div>
-              <h3>Jaime Foley</h3>
-              <p class="teacher-role">3s and 4s • Floater</p>
-              <p class="teacher-copy">Jaime’s profile will be added soon.</p>
-              <span class="teacher-link disabled">Profile Coming Soon</span>
-            </div>
-          </div>
+        <div class="notice-card">
+          <h3>Want to meet the current team?</h3>
+          <p>
+            The best way to get a feel for The Academy is to schedule a tour. During a visit, families can see the classrooms, ask questions, and learn more about the staff currently serving in each room.
+          </p>
         </div>
 
         <div class="cta-card">
           <div class="eyebrow">Now Enrolling</div>
-          <h2 class="section-title" style="color:#fff;max-width:760px;">Want to learn more about The Academy?</h2>
+          <h2 class="section-title" style="color:#fff;max-width:760px;">Ready to learn more about The Academy?</h2>
           <p>
             We would love to help your family explore enrollment, ask questions, or schedule a visit.
           </p>
           <div class="hero-actions" style="margin-top:26px;">
-            <a class='pill-btn light' href='/contact'>Contact Us</a>
+            <a class='pill-btn light' href='/contact'>Schedule a Tour</a>
             <a class="pill-btn primary" href="#" data-open-enroll>Start Enrollment</a>
           </div>
         </div>
