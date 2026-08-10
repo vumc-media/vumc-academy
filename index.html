@@ -611,6 +611,145 @@
       font-weight: 700;
     }
 
+
+    /* Academy Upcoming Events */
+    .academy-events-section {
+      padding: 68px 0;
+      background:
+        radial-gradient(circle at top right, rgba(32, 89, 191, 0.08), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(28, 138, 123, 0.10), transparent 32%),
+        #eef6f4;
+    }
+
+    .academy-events-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .academy-events-head-copy {
+      max-width: 780px;
+    }
+
+    .academy-events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .academy-event-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .academy-event-card[href]:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 52px rgba(17, 22, 29, 0.14);
+    }
+
+    .academy-event-image {
+      min-height: 190px;
+      background:
+        linear-gradient(135deg, rgba(28,138,123,0.88), rgba(32,89,191,0.76));
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+      color: #fff;
+    }
+
+    .academy-event-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(16,32,38,0.46), transparent 58%);
+      pointer-events: none;
+    }
+
+    .academy-event-date-badge {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.94);
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .academy-event-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .academy-event-kicker {
+      margin: 0 0 7px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .academy-event-title {
+      margin: 0 0 10px;
+      color: var(--dark);
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .academy-event-description {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .academy-event-link {
+      margin-top: auto;
+      padding-top: 18px;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .academy-events-state {
+      grid-column: 1 / -1;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      color: var(--muted);
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(17, 22, 29, 0.06);
+    }
+
+    .academy-events-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .academy-events-note strong {
+      color: var(--dark);
+    }
+
     .site-footer {
       background: var(--dark);
       color: #fff;
@@ -865,6 +1004,10 @@
         display: none;
       }
 
+      .academy-events-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .mobile-toggle {
         display: inline-flex;
         align-items: center;
@@ -897,8 +1040,13 @@
       .two-column,
       .mini-grid,
       .footer-grid,
-      .academy-form {
+      .academy-form,
+      .academy-events-grid {
         grid-template-columns: 1fr;
+      }
+
+      .academy-events-head {
+        display: block;
       }
 
       .hero-inner {
@@ -1037,6 +1185,30 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+
+
+    <section class="academy-events-section" id="upcoming-events">
+      <div class="container">
+        <div class="academy-events-head">
+          <div class="academy-events-head-copy">
+            <div class="eyebrow" style="color: var(--accent);">Upcoming Events</div>
+            <h2 class="section-title">What’s coming up at The Academy.</h2>
+            <p class="section-copy">
+              Selected public events from The Academy calendar appear here automatically. Events are managed through Planning Center and tagged <strong>Academy</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="academy-events-grid" id="academyEventsGrid" aria-live="polite">
+          <div class="academy-events-state">Loading upcoming Academy events…</div>
+        </div>
+
+        <p class="academy-events-note">
+          <strong>For enrolled families:</strong> classroom-specific reminders, student schedules, and private updates will continue to be shared through Brightwheel.
+        </p>
       </div>
     </section>
 
@@ -1487,6 +1659,195 @@
         }
       });
     }
+
+    /*
+      ACADEMY UPCOMING EVENTS
+      Planning Center Calendar feed:
+      ?action=tag&name=Academy
+    */
+    const ACADEMY_CALENDAR_API_URL =
+      'https://script.google.com/macros/s/AKfycbzckiRd9QoYB_Np1TjZnLw4bj16sOkRiyAD_B91C5RH1XgP5G1u75W9lNo8bmodT8HCJQ/exec';
+    const ACADEMY_CALENDAR_TAG = 'Academy';
+    const ACADEMY_MAX_EVENTS = 6;
+
+    function academyGetEvents(payload) {
+      if (Array.isArray(payload)) return payload;
+      if (payload && Array.isArray(payload.events)) return payload.events;
+      if (payload && Array.isArray(payload.data)) return payload.data;
+      return [];
+    }
+
+    function academyEventTitle(event) {
+      return event.title || event.name || event.eventName || event.summary || 'Academy Event';
+    }
+
+    function academyEventStart(event) {
+      return event.startsAt || event.start || event.startDateTime ||
+        event.start_at || event.datetime || event.date || '';
+    }
+
+    function academyEventUrl(event) {
+      return event.url || event.churchCenterUrl || event.htmlUrl || event.link || '';
+    }
+
+    function academyEventImage(event) {
+      return event.imageUrl || event.image || event.coverImage ||
+        event.photoUrl || event.photo || '';
+    }
+
+    function academyEventDescription(event) {
+      const raw = event.description || event.details || event.summaryText || '';
+      const div = document.createElement('div');
+      div.innerHTML = String(raw);
+      const text = (div.textContent || div.innerText || '').trim();
+      return text.length > 155 ? text.slice(0, 152).trim() + '…' : text;
+    }
+
+    function academyFormatEventDate(event) {
+      const suppliedDate = event.dateLabel || event.formattedDate || '';
+      const suppliedTime = event.timeLabel || event.formattedTime || event.time || '';
+
+      if (suppliedDate && suppliedTime) return suppliedDate + ' • ' + suppliedTime;
+      if (suppliedDate) return suppliedDate;
+
+      const rawStart = academyEventStart(event);
+      if (!rawStart) return 'Date coming soon';
+
+      const date = new Date(rawStart);
+      if (Number.isNaN(date.getTime())) return suppliedTime || 'Date coming soon';
+
+      const dateText = date.toLocaleDateString('en-US', {
+        timeZone: 'America/New_York',
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+      });
+
+      const timeText = suppliedTime || date.toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour: 'numeric',
+        minute: '2-digit'
+      });
+
+      return dateText + (timeText ? ' • ' + timeText : '');
+    }
+
+    function academyBuildEventCard(event) {
+      const url = academyEventUrl(event);
+      const card = document.createElement(url ? 'a' : 'article');
+      card.className = 'academy-event-card';
+
+      if (url) {
+        card.href = url;
+        card.target = '_blank';
+        card.rel = 'noopener';
+      }
+
+      const image = document.createElement('div');
+      image.className = 'academy-event-image';
+
+      const imageUrl = academyEventImage(event);
+      if (imageUrl) {
+        image.style.backgroundImage =
+          'linear-gradient(135deg, rgba(22,51,58,0.20), rgba(22,51,58,0.08)), url("' +
+          String(imageUrl).replace(/"/g, '%22') + '")';
+      }
+
+      const dateBadge = document.createElement('span');
+      dateBadge.className = 'academy-event-date-badge';
+      dateBadge.textContent = academyFormatEventDate(event);
+      image.appendChild(dateBadge);
+
+      const body = document.createElement('div');
+      body.className = 'academy-event-body';
+
+      const kicker = document.createElement('p');
+      kicker.className = 'academy-event-kicker';
+      kicker.textContent = 'The Academy at VUMC';
+
+      const title = document.createElement('h3');
+      title.className = 'academy-event-title';
+      title.textContent = academyEventTitle(event);
+
+      body.appendChild(kicker);
+      body.appendChild(title);
+
+      const descriptionText = academyEventDescription(event);
+      if (descriptionText) {
+        const description = document.createElement('p');
+        description.className = 'academy-event-description';
+        description.textContent = descriptionText;
+        body.appendChild(description);
+      }
+
+      if (url) {
+        const link = document.createElement('div');
+        link.className = 'academy-event-link';
+        link.textContent = 'Event Details →';
+        body.appendChild(link);
+      }
+
+      card.appendChild(image);
+      card.appendChild(body);
+      return card;
+    }
+
+    async function academyLoadUpcomingEvents() {
+      const grid = document.getElementById('academyEventsGrid');
+      if (!grid) return;
+
+      try {
+        const url = new URL(ACADEMY_CALENDAR_API_URL);
+        url.searchParams.set('action', 'tag');
+        url.searchParams.set('name', ACADEMY_CALENDAR_TAG);
+        url.searchParams.set('_', Date.now().toString());
+
+        const response = await fetch(url.toString(), { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error('Calendar request failed: ' + response.status);
+        }
+
+        const payload = await response.json();
+        if (payload && payload.ok === false) {
+          throw new Error(payload.error || 'Calendar API returned an error.');
+        }
+
+        const now = Date.now();
+        const events = academyGetEvents(payload)
+          .filter(event => {
+            const rawStart = academyEventStart(event);
+            if (!rawStart) return true;
+            const time = new Date(rawStart).getTime();
+            return Number.isNaN(time) || time >= now - 86400000;
+          })
+          .sort((a, b) => {
+            const aTime = new Date(academyEventStart(a)).getTime();
+            const bTime = new Date(academyEventStart(b)).getTime();
+            if (Number.isNaN(aTime) && Number.isNaN(bTime)) return 0;
+            if (Number.isNaN(aTime)) return 1;
+            if (Number.isNaN(bTime)) return -1;
+            return aTime - bTime;
+          })
+          .slice(0, ACADEMY_MAX_EVENTS);
+
+        grid.innerHTML = '';
+
+        if (!events.length) {
+          grid.innerHTML =
+            '<div class="academy-events-state">There are no public Academy events posted right now. Please check back soon.</div>';
+          return;
+        }
+
+        events.forEach(event => grid.appendChild(academyBuildEventCard(event)));
+      } catch (error) {
+        console.error('Unable to load Academy events:', error);
+        grid.innerHTML =
+          '<div class="academy-events-state">Upcoming events are temporarily unavailable. Please check back soon.</div>';
+      }
+    }
+
+    academyLoadUpcomingEvents();
+
   </script>
 
   <div id="academyChatMount"></div>
