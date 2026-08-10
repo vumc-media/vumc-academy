@@ -1197,7 +1197,7 @@
             <div class="eyebrow" style="color: var(--accent);">Upcoming Events</div>
             <h2 class="section-title">What’s coming up at The Academy.</h2>
             <p class="section-copy">
-              Selected public events from The Academy calendar appear here automatically. Events are managed through Planning Center and tagged <strong>Academy</strong>.
+              Stay connected with upcoming events and special activities at The Academy.
             </p>
           </div>
         </div>
@@ -1207,7 +1207,7 @@
         </div>
 
         <p class="academy-events-note">
-          <strong>For enrolled families:</strong> classroom-specific reminders, student schedules, and private updates will continue to be shared through Brightwheel.
+          <strong>Current families:</strong> classroom reminders and private updates are shared through Brightwheel.
         </p>
       </div>
     </section>
@@ -1682,8 +1682,8 @@
     }
 
     function academyEventStart(event) {
-      return event.startsAt || event.start || event.startDateTime ||
-        event.start_at || event.datetime || event.date || '';
+      return event.startISO || event.startsAt || event.start || event.startDateTime ||
+        event.start_at || event.datetime || '';
     }
 
     function academyEventUrl(event) {
@@ -1691,7 +1691,7 @@
     }
 
     function academyEventImage(event) {
-      return event.imageUrl || event.image || event.coverImage ||
+      return event.image || event.imageUrl || event.coverImage ||
         event.photoUrl || event.photo || '';
     }
 
@@ -1704,8 +1704,8 @@
     }
 
     function academyFormatEventDate(event) {
-      const suppliedDate = event.dateLabel || event.formattedDate || '';
-      const suppliedTime = event.timeLabel || event.formattedTime || event.time || '';
+      const suppliedDate = event.dateShort || event.date || event.dateLabel || event.formattedDate || '';
+      const suppliedTime = event.time || event.timeLabel || event.formattedTime || '';
 
       if (suppliedDate && suppliedTime) return suppliedDate + ' • ' + suppliedTime;
       if (suppliedDate) return suppliedDate;
